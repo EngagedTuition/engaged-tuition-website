@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Engaged Tuition | Expert Tutoring for Every Student</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --sand:        #E8D5C0;
+    --sand-light:  #F5EDE3;
+    --sand-dark:   #D4BC9F;
+    --sand-deeper: #C4A882;
+    --charcoal:    #1C1C1A;
+    --charcoal-mid:#3A3A36;
+    --muted:       #6B6560;
+    --white:       #FDFAF7;
+    --accent:      #8B6B4A;
+    --accent-light:#A8855F;
+    --border:      rgba(140,110,80,0.2);
+    --radius:      14px;
+    --radius-sm:   8px;
+  }
+  html { scroll-behavior: smooth; background: var(--white) radial-gradient(circle, rgba(0,0,0,0.3) 2px, transparent 2px); background-size: 60px 60px; }
+  body { font-family: 'Jost', sans-serif; color: var(--charcoal); font-size: 16px; line-height: 1.7; }
+
+  /* NAV */
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(253,250,247,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 3rem; display: flex; align-items: center; justify-content: space-between; height: 68px; }
+  .nav-logo { text-decoration: none; display: flex; flex-direction: column; align-items: flex-start; line-height: 1; gap: 2px; }
+  .logo-top { font-family: 'Cormorant Garamond', serif; font-size: 1.75rem; font-weight: 400; color: var(--charcoal); letter-spacing: -0.01em; }
+  .logo-bottom { font-family: 'Jost', sans-serif; font-size: 0.6rem; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: var(--muted); }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+  .nav-links a { text-decoration: none; color: var(--muted); font-size: 0.88rem; font-weight: 500; letter-spacing: 0.04em; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--charcoal); }
+  .nav-cta { background: var(--charcoal) !important; color: var(--white) !important; padding: 0.5rem 1.4rem; border-radius: 50px; font-weight: 500 !important; letter-spacing: 0.06em !important; font-size: 0.83rem !important; transition: background 0.2s !important; }
+  .nav-cta:hover { background: var(--accent) !important; }
+
+  /* HERO */
+  .hero { background: var(--sand-light); padding: 7rem 3rem 6rem; text-align: center; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: -60px; left: 50%; transform: translateX(-50%); width: 700px; height: 700px; background: radial-gradient(circle, rgba(196,168,130,0.18) 0%, transparent 70%); pointer-events: none; }
+  .hero-logo-display { display: inline-block; margin-bottom: 3rem; border-radius: 12px; overflow: hidden; border: 1px solid var(--sand-dark); }
+  .hero-logo-display img { display: block; width: 340px; max-width: 90vw; height: auto; }
+  .hero-logo-word { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.8rem, 6vw, 4.2rem); font-weight: 400; color: var(--charcoal); letter-spacing: -0.02em; line-height: 1; }
+  .hero-logo-sub { font-family: 'Jost', sans-serif; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.45em; text-transform: uppercase; color: var(--charcoal-mid); margin-top: 0.4rem; }
+  .hero-tagline { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 400; font-style: italic; color: var(--charcoal-mid); margin-bottom: 1rem; }
+  .hero-sub { font-size: 1rem; color: var(--muted); max-width: 560px; margin: 0 auto 2.5rem; font-weight: 300; line-height: 1.85; }
+  .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .btn-primary { background: var(--charcoal); color: var(--white); border: none; padding: 0.85rem 2.2rem; border-radius: 50px; font-size: 0.9rem; font-weight: 500; font-family: 'Jost', sans-serif; letter-spacing: 0.06em; cursor: pointer; text-decoration: none; display: inline-block; transition: background 0.2s, transform 0.15s; }
+  .btn-primary:hover { background: var(--accent); transform: translateY(-1px); }
+  .btn-secondary { background: transparent; color: var(--charcoal); border: 1.5px solid var(--sand-deeper); padding: 0.85rem 2.2rem; border-radius: 50px; font-size: 0.9rem; font-weight: 500; font-family: 'Jost', sans-serif; letter-spacing: 0.06em; cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.2s; }
+  .btn-secondary:hover { background: var(--sand); border-color: var(--accent); transform: translateY(-1px); }
+
+  /* STRIP */
+  .strip { background: var(--charcoal); color: rgba(255,255,255,0.8); padding: 1.6rem 2rem; display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; }
+  .strip-item { font-size: 0.8rem; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; display: flex; align-items: center; gap: 0.6rem; }
+  .strip-dot { color: var(--sand-deeper); font-size: 1rem; }
+
+  /* SECTIONS */
+  section { padding: 5.5rem 3rem; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .section-eyebrow { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; display: block; }
+  .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.9rem, 3.5vw, 2.8rem); font-weight: 600; color: var(--charcoal); line-height: 1.15; letter-spacing: -0.01em; margin-bottom: 1rem; }
+  .section-body { font-size: 1rem; color: var(--muted); font-weight: 300; max-width: 520px; line-height: 1.85; }
+
+  /* WHY US */
+  #why { background: var(--sand-light); }
+  .why-intro { margin-bottom: 3.5rem; }
+  .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+  .why-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem 1.75rem; transition: transform 0.2s, box-shadow 0.2s; }
+  .why-card:hover { transform: translateY(-3px); box-shadow: 0 10px 40px rgba(140,110,80,0.1); }
+  .why-icon { width: 44px; height: 44px; background: var(--sand); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 1.25rem; }
+  .why-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; color: var(--charcoal); margin-bottom: 0.6rem; }
+  .why-card p { font-size: 0.92rem; color: var(--muted); line-height: 1.75; }
+
+  /* SUBJECTS */
+  #subjects { background: var(--white); }
+  .subjects-top { margin-bottom: 3rem; }
+  .subjects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(155px, 1fr)); gap: 1rem; }
+  .subject-pill { background: var(--sand-light); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.6rem 1rem; text-align: center; transition: all 0.2s; }
+  .subject-pill:hover { background: var(--sand); border-color: var(--sand-deeper); transform: translateY(-2px); }
+  .subject-emoji { font-size: 1.8rem; display: block; margin-bottom: 0.55rem; }
+  .subject-name { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 600; color: var(--charcoal); display: block; }
+  .subject-levels { font-size: 0.75rem; color: var(--muted); margin-top: 0.3rem; display: block; letter-spacing: 0.04em; }
+
+  /* TUTORS */
+  #tutors { background: var(--sand-light); }
+  .tutors-intro { margin-bottom: 3.5rem; }
+  .tutors-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 2rem; }
+  .tutor-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; }
+  .tutor-card:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(140,110,80,0.12); }
+  .tutor-photo-wrap { width: 100%; height: 260px; overflow: hidden; background: var(--sand); display: flex; align-items: center; justify-content: center; }
+  .tutor-photo-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+  .tutor-photo-wrap .harry-photo { object-fit: contain; }
+  .tutor-placeholder { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; color: var(--sand-deeper); }
+  .tutor-placeholder-icon { font-size: 3.5rem; line-height: 1; }
+  .tutor-placeholder-text { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; }
+  .tutor-body { padding: 1.6rem 1.75rem; }
+  .tutor-name { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 600; color: var(--charcoal); margin-bottom: 0.3rem; }
+  .tutor-tag { display: inline-block; background: var(--sand); color: var(--accent); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.06em; padding: 0.25rem 0.8rem; border-radius: 50px; border: 1px solid var(--sand-deeper); margin-bottom: 1rem; }
+  .tutor-bio { font-size: 0.92rem; color: var(--muted); line-height: 1.75; }
+
+  /* PRICING */
+  #pricing { background: var(--white); }
+  .pricing-top { margin-bottom: 3rem; }
+  .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+  .pricing-card { border: 1px solid var(--border); border-radius: var(--radius); padding: 2.25rem; background: var(--white); position: relative; transition: transform 0.2s; }
+  .pricing-card:hover { transform: translateY(-3px); }
+  .pricing-card.featured { background: var(--sand-light); border-color: var(--sand-deeper); }
+  .featured-tag { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--charcoal); color: var(--white); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.3rem 1.1rem; border-radius: 50px; white-space: nowrap; }
+  .pricing-eyebrow { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.4rem; }
+  .pricing-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; color: var(--charcoal); margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border); }
+  .pricing-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.65rem 0; border-bottom: 1px solid rgba(140,110,80,0.1); font-size: 0.92rem; }
+  .pricing-row:last-of-type { border-bottom: none; }
+  .p-type { color: var(--muted); font-weight: 300; }
+  .p-price { font-weight: 600; color: var(--charcoal); }
+  .p-save { font-size: 0.75rem; color: var(--accent); font-weight: 600; margin-left: 0.4rem; }
+  .pricing-note { margin-top: 1.25rem; background: var(--white); border-radius: var(--radius-sm); border: 1px solid var(--border); padding: 0.85rem 1rem; font-size: 0.85rem; color: var(--muted); line-height: 1.65; }
+
+  /* CONTACT */
+  #contact { background: var(--sand-light); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+  .contact-left .section-body { max-width: 100%; }
+  .contact-item { display: flex; align-items: center; gap: 1rem; margin-top: 1.25rem; background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.1rem 1.4rem; }
+  .c-icon { width: 42px; height: 42px; background: var(--sand); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+  .c-label { font-size: 0.78rem; color: var(--muted); font-weight: 500; letter-spacing: 0.04em; }
+  .c-value { font-weight: 500; color: var(--charcoal); font-size: 0.9rem; text-decoration: none; transition: color 0.2s; }
+  .c-value:hover { color: var(--accent); }
+  .contact-right { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 2.5rem; }
+  .contact-right h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; color: var(--charcoal); margin-bottom: 0.6rem; }
+  .contact-right p { font-size: 0.92rem; color: var(--muted); margin-bottom: 1.75rem; line-height: 1.8; }
+  .btn-full { width: 100%; text-align: center; display: block; }
+
+  /* FOOTER */
+  footer { background: var(--charcoal); color: rgba(255,255,255,0.6); text-align: center; padding: 3rem 2rem; }
+  .footer-logo-top { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 400; color: var(--white); display: block; line-height: 1; }
+  .footer-logo-sub { font-size: 0.6rem; font-weight: 500; letter-spacing: 0.35em; text-transform: uppercase; color: rgba(255,255,255,0.4); display: block; margin-top: 0.3rem; margin-bottom: 1.5rem; }
+  footer p { font-size: 0.82rem; margin-bottom: 0.4rem; }
+  footer a { color: rgba(255,255,255,0.55); text-decoration: none; }
+  footer a:hover { color: var(--white); }
+  .footer-divider { width: 40px; height: 1px; background: rgba(255,255,255,0.15); margin: 1.2rem auto; }
+
+  /* ABOUT */
+  #about { background: var(--white); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+  .about-quote { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.3rem, 2.5vw, 1.7rem); font-style: italic; font-weight: 400; color: var(--charcoal-mid); line-height: 1.5; border-left: 3px solid var(--sand-deeper); padding-left: 1.5rem; margin-bottom: 2rem; }
+  .about-body { font-size: 0.97rem; color: var(--muted); font-weight: 300; line-height: 1.9; margin-bottom: 1.25rem; }
+  .about-tags { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 2rem; }
+  .about-tag { background: var(--sand-light); border: 1px solid var(--border); border-radius: 50px; padding: 0.35rem 1rem; font-size: 0.8rem; font-weight: 500; color: var(--accent); letter-spacing: 0.04em; }
+  .about-image-box { background: var(--sand-light); border: 1px solid var(--border); border-radius: var(--radius); padding: 2.5rem; display: flex; flex-direction: column; gap: 1.25rem; }
+  .about-stat { display: flex; align-items: flex-start; gap: 1rem; }
+  .about-stat-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
+  .about-stat-text h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 600; color: var(--charcoal); margin-bottom: 0.2rem; }
+  .about-stat-text p { font-size: 0.88rem; color: var(--muted); line-height: 1.65; }
+  .about-divider { height: 1px; background: var(--border); }
+  @media (max-width: 768px) { .about-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
+
+  /* TUTOR BIO EXPAND */
+  .tutor-bio { font-size: 0.92rem; color: var(--muted); line-height: 1.75; }
+  .tutor-bio-short { display: block; }
+  .tutor-bio-full { display: none; }
+  .tutor-bio-full.open { display: block; }
+  .bio-toggle { background: none; border: none; color: var(--accent); font-size: 0.83rem; font-weight: 600; font-family: 'Jost', sans-serif; cursor: pointer; padding: 0.5rem 0 0; letter-spacing: 0.04em; display: inline-block; }
+  .bio-toggle:hover { color: var(--charcoal); }
+  @media (max-width: 768px) {
+    nav { padding: 0 1.25rem; }
+    .nav-links { gap: 1.2rem; }
+    section { padding: 4rem 1.5rem; }
+    .hero { padding: 5rem 1.5rem 4rem; }
+    .strip { gap: 1.2rem; flex-direction: column; align-items: center; }
+    .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+  .hero-logo-display { animation: fadeUp 0.6s ease both; }
+  .hero-tagline      { animation: fadeUp 0.6s 0.12s ease both; }
+  .hero-sub          { animation: fadeUp 0.6s 0.22s ease both; }
+  .hero-btns         { animation: fadeUp 0.6s 0.32s ease both; }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <a href="#" class="nav-logo">
+    <span class="logo-top">Engaged</span>
+    <span class="logo-bottom">Tuition</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#subjects">Subjects</a></li>
+    <li><a href="#tutors">Our Tutors</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+  </ul>
+</nav>
+
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-logo-display">
+    <img src="Engaged_Tuition_Logo.png" alt="Engaged Tuition logo">
+  </div>
+  <p class="hero-tagline">Building confidence. Delivering results.</p>
+  <p class="hero-sub">Expert tutoring from current university students who recently aced the very same exams — combining top grades with fresh, engaging teaching from KS3 through to A-Level.</p>
+  <div class="hero-btns">
+    <a href="https://forms.gle/xrj77tJBsSCDFwHMA" target="_blank" class="btn-primary">Book a Session</a>
+    <a href="#why" class="btn-secondary">Find Out More</a>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="strip-item"><span class="strip-dot">—</span> KS3 · GCSE · A-Level</div>
+  <div class="strip-item"><span class="strip-dot">—</span> Sciences · Maths · English · Spanish · Geography · Business · Psychology</div>
+  <div class="strip-item"><span class="strip-dot">—</span> From £35/hour with packages</div>
+  <div class="strip-item"><span class="strip-dot">—</span> Tutors with first-hand exam experience</div>
+</div>
+
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+
+      <div class="about-left">
+        <span class="section-eyebrow">Who We Are</span>
+        <h2 class="section-title">Why I started<br>Engaged Tuition</h2>
+        <div class="about-quote">"My goal is to provide students with high-quality academic support whilst ensuring they feel motivated, supported, and genuinely enjoy learning."</div>
+        <p class="about-body">Hi! I'm Harry, the founder of Engaged Tuition. Engaged Tuition grew naturally from something I hadn't planned — my own students kept encouraging me to expand. Their feedback consistently highlighted not just the academic progress they were making, but the friendly, approachable, and encouraging atmosphere I created in every lesson. It became clear that this combination — real academic rigour alongside genuine warmth — was something students needed more of.</p>
+        <p class="about-body">Running Engaged Tuition also means managing a team of tutors, coordinating sessions, and keeping everything running smoothly for families. Strong time management and immense organisation sit at the heart of how we operate — so that every student gets consistent, reliable, high-quality support every single time.</p>
+        <p class="about-body">Every tutor at Engaged Tuition shares the same values: true subject knowledge, real exam experience, and a genuine commitment to helping students feel confident and capable — not just on results day, but throughout their entire learning journey.</p>
+        <div class="about-tags">
+          <span class="about-tag">Founded by Harry</span>
+          <span class="about-tag">Student-first approach</span>
+          <span class="about-tag">Confidence &amp; results</span>
+          <span class="about-tag">Meticulously organised</span>
+        </div>
+      </div>
+
+      <div class="about-right">
+        <div class="about-image-box">
+          <div class="about-stat">
+            <span class="about-stat-icon">🎓</span>
+            <div class="about-stat-text">
+              <h4>Born from student feedback</h4>
+              <p>Students consistently praised not only the academic support, but the encouraging and approachable environment Harry created — which became the blueprint for Engaged Tuition.</p>
+            </div>
+          </div>
+          <div class="about-divider"></div>
+          <div class="about-stat">
+            <span class="about-stat-icon">❤️</span>
+            <div class="about-stat-text">
+              <h4>Motivation at the core</h4>
+              <p>We believe students learn best when they feel genuinely supported and enjoy the process. Every session is designed to leave students more motivated than when they arrived.</p>
+            </div>
+          </div>
+          <div class="about-divider"></div>
+          <div class="about-stat">
+            <span class="about-stat-icon">📋</span>
+            <div class="about-stat-text">
+              <h4>Reliable &amp; organised</h4>
+              <p>Exceptional time management and organisation mean families can trust that sessions run smoothly, resources are always prepared, and nothing is left to chance.</p>
+            </div>
+          </div>
+          <div class="about-divider"></div>
+          <div class="about-stat">
+            <span class="about-stat-icon">🏆</span>
+            <div class="about-stat-text">
+              <h4>High standards, always</h4>
+              <p>Every tutor is carefully selected for their subject knowledge, recent exam experience, and ability to connect with students in a warm, professional way.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- WHY US -->
+<section id="why">
+  <div class="container">
+    <div class="why-intro">
+      <span class="section-eyebrow">Why Choose Us</span>
+      <h2 class="section-title">More than tutoring —<br>a genuine confidence boost</h2>
+      <p class="section-body">We combine real subject expertise with an understanding of exactly what your child is going through — because our tutors have just been through it themselves.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">🎓</div>
+        <h3>Tutors Who've Been There</h3>
+        <p>Our tutors are current university students who recently sat the very same GCSEs and A-Levels — with top grades to prove it. They know the mark schemes, exam style, and what examiners look for.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">💡</div>
+        <h3>Engaging, Enjoyable Sessions</h3>
+        <p>No dry lecturing. Our sessions are interactive and stimulating, building genuine understanding rather than passive note-taking — leaving students looking forward to the next one.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">📝</div>
+        <h3>Exam Technique &amp; Strategy</h3>
+        <p>Beyond the content, we teach students exactly how to approach exam questions — picking up marks efficiently, structuring strong answers, and staying calm under pressure.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">❤️</div>
+        <h3>Confidence Building</h3>
+        <p>We create a warm, safe space where every student feels supported and encouraged. Watching confidence grow alongside grades is at the heart of what we do at Engaged Tuition.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🎯</div>
+        <h3>Truly Personalised</h3>
+        <p>Every student is different. We identify specific gaps and build from the foundations upward — whether the goal is to pass comfortably or to achieve the very top grades.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">⭐</div>
+        <h3>Up-to-Date Knowledge</h3>
+        <p>Our tutors know the latest syllabus changes, current examiner trends, and the most effective revision strategies — because they used them successfully just recently.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- SUBJECTS -->
+<section id="subjects">
+  <div class="container">
+    <div class="subjects-top">
+      <span class="section-eyebrow">What We Teach</span>
+      <h2 class="section-title">Subjects we cover</h2>
+      <p class="section-body">Tutoring available from KS3 all the way through to A-Level across a wide range of subjects.</p>
+    </div>
+    <div class="subjects-grid">
+      <div class="subject-pill">
+        <span class="subject-emoji">🔬</span>
+        <span class="subject-name">Sciences</span>
+        <span class="subject-levels">KS3 · GCSE · A-Level</span>
+      </div>
+      <div class="subject-pill">
+        <span class="subject-emoji">📐</span>
+        <span class="subject-name">Maths</span>
+        <span class="subject-levels">KS3 · GCSE</span>
+      </div>
+      <div class="subject-pill">
+        <span class="subject-emoji">📖</span>
+        <span class="subject-name">English</span>
+        <span class="subject-levels">KS3 · GCSE</span>
+      </div>
+      <div class="subject-pill">
+        <span class="subject-emoji">🇪🇸</span>
+        <span class="subject-name">Spanish</span>
+        <span class="subject-levels">KS3 · GCSE</span>
+      </div>
+      <div class="subject-pill">
+        <span class="subject-emoji">🌍</span>
+        <span class="subject-name">Geography</span>
+        <span class="subject-levels">KS3 · GCSE</span>
+      </div>
+      <div class="subject-pill">
+        <span class="subject-emoji">📈</span>
+        <span class="subject-name">Business</span>
+        <span class="subject-levels">KS3 · GCSE · A-Level</span>
+      </div>
+      <div class="subject-pill">
+        <span class="subject-emoji">🧠</span>
+        <span class="subject-name">Psychology</span>
+        <span class="subject-levels">KS3 · GCSE</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     TUTORS
+     HOW TO ADD PHOTOS:
+       1. Put your photo file (e.g. sarah.jpg) in the
+          SAME FOLDER as this index.html file.
+       2. Inside the tutor card you want, find the
+          <div class="tutor-placeholder"> block.
+       3. Delete that entire placeholder div.
+       4. In its place, type:
+          <img src="sarah.jpg" alt="Sarah, Maths tutor">
+       That's it! The photo fills the card automatically.
+
+     HOW TO EDIT NAMES / BIOS:
+       Find the line with the tutor's name or bio text
+       and simply type over it.
+
+     HOW TO ADD MORE TUTORS:
+       Copy one full tutor-card block and paste it
+       inside the tutors-grid div below.
+═══════════════════════════════════════════ -->
+<section id="tutors">
+  <div class="container">
+    <div class="tutors-intro">
+      <span class="section-eyebrow">Meet the Team</span>
+      <h2 class="section-title">Your tutors</h2>
+      <p class="section-body">Current university students with top grades and a genuine passion for helping others reach their potential.</p>
+    </div>
+
+    <div class="tutors-grid">
+
+      <!-- ══ TUTOR 1: HARRY ══ -->
+      <div class="tutor-card">
+        <div class="tutor-photo-wrap">
+            <img src="Harry_website_photo.jpeg" alt="Harry" class="harry-photo"> 
+        </div>
+        <div class="tutor-body">
+          <div class="tutor-name">Harry</div>
+          <span class="tutor-tag">Biology · Chemistry</span>
+          <p class="tutor-bio">
+            <span class="tutor-bio-short">Hello! I'm Harry, the founder of Engaged Tuition and a Biology and Chemistry tutor currently studying Biochemistry at the University of Edinburgh with a predicted First-Class degree. I have been tutoring for the past three years, teaching students from KS3 through to A-Level.</span>
+            <span class="tutor-bio-full">Throughout this time, I have developed a teaching style centred around one key principle: true understanding. I strongly believe that when students genuinely understand what they are learning, confidence naturally follows — and confidence is often the difference between simply memorising content and achieving excellent results.<br><br>My lessons are designed to be engaging, supportive, and interactive, ensuring that students remain focused and motivated throughout every session. I aim to create an environment where students feel comfortable asking questions, making mistakes, and developing confidence in their own abilities. Patience, encouragement, and reliability are at the heart of the way I teach.<br><br>In subjects such as Biology and Chemistry, exam technique is just as important as subject knowledge. I place a strong emphasis on helping students master exam technique, understand how marks are awarded, and develop the skills needed to approach questions with confidence.</span>
+            <button class="bio-toggle" onclick="toggleBio(this)">Read more ↓</button>
+          </p>
+        </div>
+      </div>
+
+      <!-- ══ TUTOR 2: MOHAMMAD ══ -->
+      <div class="tutor-card">
+        <div class="tutor-photo-wrap">
+            <img src="Mohammad_website_photo.jpeg" alt="Mohammad, Physics and Maths tutor">
+        </div>
+        <div class="tutor-body">
+          <div class="tutor-name">Mohammad</div>
+          <span class="tutor-tag">Physics · Maths</span>
+          <p class="tutor-bio">
+            <span class="tutor-bio-short">Hi, I'm Mohammad Aadam. I graduated from Queen Mary University of London with a BSc in Biomedical Science and I am currently studying Medicine at the University of Buckingham. My teaching approach is centred around developing a strong understanding of core concepts and building student confidence.</span>
+            <span class="tutor-bio-full">I aim to create a supportive and patient learning environment where students feel comfortable asking questions, overcoming challenges, and growing in confidence with every session.<br><br>Over the past five years, I have tutored students across a range of ages and abilities. To date, I have worked with more than 100 students, helping them strengthen their academic performance while also developing independent learning skills. I take pride in creating a welcoming and encouraging atmosphere where every student feels supported to achieve their full potential.</span>
+            <button class="bio-toggle" onclick="toggleBio(this)">Read more ↓</button>
+          </p>
+        </div>
+      </div>
+
+      <!-- ══ TUTOR 3: ELEANOR ══ -->
+      <div class="tutor-card">
+        <div class="tutor-photo-wrap">
+           <img src="Eleanor_website_photo.jpeg" alt="Eleanor">
+        </div>
+        <div class="tutor-body">
+          <div class="tutor-name">Eleanor</div>
+          <span class="tutor-tag">Business · English Language · Geography · Psychology</span>
+          <p class="tutor-bio">
+            <span class="tutor-bio-short">Hi, I'm Eleanor. I am currently studying Business and Management at the University of Exeter, on track for a first-class degree, with top A-Level grades in Business, Psychology, and Geography. I am passionate about helping students develop both their understanding and confidence.</span>
+            <span class="tutor-bio-full">Through mentoring experience and roles supporting younger students, I have developed a patient, approachable, and encouraging teaching style that adapts to each student's individual way of learning. I aim to create a positive and engaging environment where students feel comfortable asking questions, building confidence, and making clear progress towards their academic goals.</span>
+            <button class="bio-toggle" onclick="toggleBio(this)">Read more ↓</button>
+          </p>
+        </div>
+      </div>
+
+      <!-- ══ TUTOR 4: FRANKIE ══ -->
+      <div class="tutor-card">
+        <div class="tutor-photo-wrap">
+          <img src="Frankie_website_photo.jpeg" alt="Frankie"> 
+        </div>
+        <div class="tutor-body">
+          <div class="tutor-name">Frankie</div>
+          <span class="tutor-tag">Spanish · English Language &amp; Literature</span>
+          <p class="tutor-bio">
+            <span class="tutor-bio-short">Hello! I'm Frankie. I am currently studying English and Spanish at the University of Exeter, where I combine my passion for language learning, Spanish culture, and literary analysis with my work as an editor for Exeter's RAZZ Magazine.</span>
+            <span class="tutor-bio-full">Having completed my GCSEs and A-Levels in recent years, I have a strong understanding of current exam board requirements and the challenges students face. Alongside tutoring, I have experience mentoring young people through my role as an assistant sports coach, supporting children aged 5–14 with a variety of individual needs and goals.<br><br>I offer tailored sessions from GCSE Spanish oral exam preparation to lower-school English comprehension and writing support. I pride myself on being organised, approachable, and positive, helping students feel confident while making clear academic progress. I recognise that every student learns differently, so I adapt my teaching methods to suit each student's abilities, areas for development, and personality.</span>
+            <button class="bio-toggle" onclick="toggleBio(this)">Read more ↓</button>
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="container">
+    <div class="pricing-top">
+      <span class="section-eyebrow">Transparent Pricing</span>
+      <h2 class="section-title">Simple, fair pricing</h2>
+      <p class="section-body">No hidden fees. Save more with our flexible 10-session packages.</p>
+    </div>
+    <div class="pricing-grid">
+
+      <div class="pricing-card">
+        <div class="pricing-eyebrow">KS3 &amp; GCSE</div>
+        <h3>Key Stage 3 &amp; GCSE</h3>
+        <div class="pricing-row">
+          <span class="p-type">Single session</span>
+          <span class="p-price">£40 / hour</span>
+        </div>
+        <div class="pricing-row">
+          <span class="p-type">10-session package</span>
+          <span class="p-price">£35 / hour <span class="p-save">Save £50</span></span>
+        </div>
+        <div class="pricing-note">
+          Package total: <strong>£350</strong> for 10 hours — a saving of £50 compared to booking individually.
+        </div>
+      </div>
+
+      <div class="pricing-card featured">
+        <div class="featured-tag">A-Level</div>
+        <div class="pricing-eyebrow">A-Level</div>
+        <h3>Sixth Form &amp; A-Level</h3>
+        <div class="pricing-row">
+          <span class="p-type">Single session</span>
+          <span class="p-price">£45 / hour</span>
+        </div>
+        <div class="pricing-row">
+          <span class="p-type">10-session package</span>
+          <span class="p-price">£40 / hour <span class="p-save">Save £50</span></span>
+        </div>
+        <div class="pricing-note">
+          Package total: <strong>£400</strong> for 10 hours — a saving of £50 compared to booking individually.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-grid">
+
+      <div class="contact-left">
+        <span class="section-eyebrow">Get in Touch</span>
+        <h2 class="section-title">Ready to get started?</h2>
+        <p class="section-body">Reach out and we'll match your child with the perfect tutor. No question is too small — we'd love to hear from you.</p>
+
+        <div class="contact-item">
+          <div class="c-icon">✉️</div>
+          <div>
+            <div class="c-label">Email us</div>
+            <a href="mailto:engagedtuitiontoday@gmail.com" class="c-value">engagedtuitiontoday@gmail.com</a>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="c-icon">🕐</div>
+          <div>
+            <div class="c-label">Response time</div>
+            <span class="c-value">We aim to reply within 24 hours</span>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="c-icon">📋</div>
+          <div>
+            <div class="c-label">Booking form</div>
+            <a href="https://forms.gle/xrj77tJBsSCDFwHMA" target="_blank" class="c-value">Fill in our short enquiry form ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-right">
+        <h3>Book your first session</h3>
+        <p>Fill in our short enquiry form and we'll be in touch to arrange everything.</p>
+        <a href="https://forms.gle/xrj77tJBsSCDFwHMA" target="_blank" class="btn-primary btn-full">Open Booking Form ↗</a>
+        <p style="margin-top: 1.25rem; margin-bottom: 0; font-size: 0.82rem; color: var(--muted); text-align: center;">
+          Or email us directly at <a href="mailto:engagedtuitiontoday@gmail.com" style="color: var(--accent);">engagedtuitiontoday@gmail.com</a>
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo-top">Engaged</span>
+  <span class="footer-logo-sub">T &nbsp; U &nbsp; I &nbsp; T &nbsp; I &nbsp; O &nbsp; N</span>
+  <p>KS3 · GCSE · A-Level tutoring in Sciences, Maths, English, Spanish, Geography, Business &amp; Psychology</p>
+  <div class="footer-divider"></div>
+  <p><a href="mailto:engagedtuitiontoday@gmail.com">engagedtuitiontoday@gmail.com</a></p>
+  <p style="margin-top: 1rem; font-size: 0.78rem; opacity: 0.4;">&copy; 2025 Engaged Tuition. All rights reserved.</p>
+</footer>
+
+<script>
+function toggleBio(button) {
+  const fullBio = button.previousElementSibling;
+  fullBio.classList.toggle('open');
+  button.textContent = fullBio.classList.contains('open') ? 'Read less ↑' : 'Read more ↓';
+}
+</script>
+
+</body>
+</html>
