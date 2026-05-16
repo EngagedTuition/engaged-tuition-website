@@ -1788,14 +1788,14 @@ html, body {
 
 <script>
 function buildDotField(field) {
+  field.innerHTML = '';
+
   const section = field.closest('section');
   const focus = field.dataset.focusTarget
     ? section.querySelector(field.dataset.focusTarget)
     : null;
 
   if (!section || !focus) return;
-
-  field.innerHTML = '';
 
   const sectionRect = section.getBoundingClientRect();
   const focusRect = focus.getBoundingClientRect();
@@ -1804,19 +1804,20 @@ function buildDotField(field) {
     : null;
   const clearRect = clearTarget ? clearTarget.getBoundingClientRect() : null;
   const clearPadding = Number(field.dataset.clearPadding || 28);
-  const clearKeepTopRows = Number(field.dataset.clearKeepTopRows || 0);
-  const clearKeepRows = (field.dataset.clearKeepRows || '')
+  const isMobile = window.innerWidth <= 768;
+  const clearKeepTopRows = isMobile ? 0 : Number(field.dataset.clearKeepTopRows || 0);
+  const clearKeepRows = (isMobile ? '' : field.dataset.clearKeepRows || '')
     .split(',')
     .map(rowNumber => Number(rowNumber.trim()))
     .filter(Boolean);
-  const clearKeepColumns = (field.dataset.clearKeepColumns || '')
+  const clearKeepColumns = (isMobile ? '' : field.dataset.clearKeepColumns || '')
     .split(',')
     .map(columnNumber => Number(columnNumber.trim()))
     .filter(Boolean);
   const centerX = focusRect.left - sectionRect.left + focusRect.width / 2;
   const centerY = focusRect.top - sectionRect.top + focusRect.height / 2;
-  const rows = window.innerWidth < 768 ? 14 : 20;
-  const cols = window.innerWidth < 768 ? 14 : Math.max(24, Math.round(sectionRect.width / 54));
+  const rows = isMobile ? 16 : 20;
+  const cols = isMobile ? 10 : Math.max(24, Math.round(sectionRect.width / 54));
   const maxDistance = Math.hypot(
     Math.max(centerX, sectionRect.width - centerX),
     Math.max(centerY, sectionRect.height - centerY)
@@ -1844,8 +1845,8 @@ function buildDotField(field) {
 
       const distance = Math.hypot(x - centerX, y - centerY);
       const closeness = Math.max(0, 1 - distance / maxDistance);
-      const size = 1.1 + (1 - closeness) * 4.2;
-      const opacity = 0.08 + (1 - closeness) * 0.66;
+      const size = isMobile ? 0.9 + (1 - closeness) * 2.6 : 1.1 + (1 - closeness) * 4.2;
+      const opacity = isMobile ? 0.05 + (1 - closeness) * 0.34 : 0.08 + (1 - closeness) * 0.66;
 
       const dot = document.createElement('span');
       dot.className = 'focus-dot';
@@ -1871,8 +1872,8 @@ function buildDotField(field) {
         const x = cols === 1 ? centerX : (col / (cols - 1)) * sectionRect.width;
         const distance = Math.hypot(x - centerX, y - centerY);
         const closeness = Math.max(0, 1 - distance / maxDistance);
-        const size = 1.1 + (1 - closeness) * 4.2;
-        const opacity = 0.08 + (1 - closeness) * 0.66;
+        const size = isMobile ? 0.9 + (1 - closeness) * 2.6 : 1.1 + (1 - closeness) * 4.2;
+        const opacity = isMobile ? 0.05 + (1 - closeness) * 0.34 : 0.08 + (1 - closeness) * 0.66;
 
         const dot = document.createElement('span');
         dot.className = 'focus-dot';
