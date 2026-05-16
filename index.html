@@ -542,6 +542,8 @@
 .review-stars .icon,
 .rating-icons .icon {width: 0.95em;height: 0.95em;}
 .review-text {font-size: 0.9rem;color: var(--charcoal-mid);line-height: 1.7;}
+.review-text p {margin: 0;}
+.review-text p + p {margin-top: 0.9rem;}
 .review-author {margin-top: 0.8rem;font-size: 0.8rem;color: var(--muted);}
 
 @media (max-width: 768px) {
@@ -849,8 +851,12 @@ html, body {
 
 
 
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon_folder/android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon_folder/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon_folder/favicon-16x16.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon_folder/apple-touch-icon.png">
+<link rel="manifest" href="/favicon_folder/site.webmanifest">
 <meta name="theme-color" content="#FDFAF7">
 
 </head>
@@ -913,7 +919,7 @@ html, body {
 
 <!-- HERO -->
 <section class="hero">
-  <div class="dot-field" data-focus-target=".hero-logo-display" data-clear-target=".hero-copy" data-clear-padding="8" aria-hidden="true"></div>
+  <div class="dot-field" data-focus-target=".hero-logo-display" data-clear-target=".hero-copy, .hero-btns a" data-clear-padding="12" aria-hidden="true"></div>
   <div class="hero-logo-display">
     <img src="Engaged_Tuition_Logo.png" alt="Engaged Tuition logo">
   </div>
@@ -1222,7 +1228,7 @@ html, body {
     </p>
 
     <div class="mini-review">
-      <span class="rating-icons" aria-label="5 out of 5 stars"><svg class="icon icon-fill" aria-hidden="true"><use href="#icon-star"></use></svg><svg class="icon icon-fill" aria-hidden="true"><use href="#icon-star"></use></svg><svg class="icon icon-fill" aria-hidden="true"><use href="#icon-star"></use></svg><svg class="icon icon-fill" aria-hidden="true"><use href="#icon-star"></use></svg><svg class="icon icon-fill" aria-hidden="true"><use href="#icon-star"></use></svg></span> “Reliable, professional, and genuinely commited to helping her students succeed”
+      <span class="rating-icons" aria-label="5 out of 5 stars"><svg class="icon icon-fill" aria-hidden="true"><use href="#icon-star"></use></svg><svg class="icon icon-fill" aria-hidden="true"><use href="#icon-star"></use></svg><svg class="icon icon-fill" aria-hidden="true"><use href="#icon-star"></use></svg><svg class="icon icon-fill" aria-hidden="true"><use href="#icon-star"></use></svg><svg class="icon icon-fill" aria-hidden="true"><use href="#icon-star"></use></svg></span> “Reliable, professional, and genuinely committed to helping her students succeed”
     </div>
 
     <button class="bio-toggle" onclick="openModal('frankieModal')">
@@ -1293,23 +1299,23 @@ html, body {
 
             <div class="review-text">
               <p>
-              “Harry has been an amazing Biology and Chemistry tutor for me over the past year. When I first started, I was struggling and working around a Grade 6 level, but thanks to his teaching I now feel genuinely confident and am aiming for Grade 9s in both subjects.
+                “Harry has been an amazing Biology and Chemistry tutor for me over the past year. When I first started, I was struggling and working around a Grade 6 level, but thanks to his teaching I now feel genuinely confident and am aiming for Grade 9s in both subjects.
               </p>
-              <br>
+
               <p>
-              What makes Harry stand out is how interactive and engaging his lessons are. The sessions never feel boring or repetitive. He explains difficult topics clearly, breaks things down in a way that actually makes sense, and always makes sure I fully understand everything before moving on.
+                What makes Harry stand out is how interactive and engaging his lessons are. The sessions never feel boring or repetitive. He explains difficult topics clearly, breaks things down in a way that actually makes sense, and always makes sure I fully understand everything before moving on.
               </p>
-              <br>
+
               <p>
-              I genuinely look forward to our tutor sessions each week because they’re productive, enjoyable, and motivating. He’s also incredibly patient and always happy to answer every question I have, no matter how small.
+                I genuinely look forward to our tutor sessions each week because they’re productive, enjoyable, and motivating. He’s also incredibly patient and always happy to answer every question I have, no matter how small.
               </p>
-              <br>
+
               <p>
-              His support has massively improved both my confidence and exam technique, especially with applying knowledge to harder GCSE questions. I’d highly recommend Harry to anyone looking to improve in Biology or Chemistry, whether you’re struggling with the subjects or aiming for the top grades.
+                His support has massively improved both my confidence and exam technique, especially with applying knowledge to harder GCSE questions. I’d highly recommend Harry to anyone looking to improve in Biology or Chemistry, whether you’re struggling with the subjects or aiming for the top grades.
               </p>
-              <br>
+
               <p>
-              He’s had a huge impact on my GCSE revision and progress.”
+                He’s had a huge impact on my GCSE revision and progress.”
               </p>
             </div>
 
@@ -1317,7 +1323,19 @@ html, body {
               — Adam, GCSE Student
             </div>
           </div>
+          <div class="review-card">
+            <div class="review-stars" aria-label="5 out of 5 stars"><svg class="icon icon-fill" aria-hidden="true"><use href="#icon-star"></use></svg><svg class="icon icon-fill" aria-hidden="true"><use href="#icon-star"></use></svg><svg class="icon icon-fill" aria-hidden="true"><use href="#icon-star"></use></svg><svg class="icon icon-fill" aria-hidden="true"><use href="#icon-star"></use></svg><svg class="icon icon-fill" aria-hidden="true"><use href="#icon-star"></use></svg></div>
 
+            <div class="review-text">
+              <p>
+                “Harry has helped me gain confidence and interest in biology and chemistry after only a short period of time. In our sessions, Harry creates a balance of productive learning and having a laugh which makes them very enjoyable and effective. Overall, I would definitely recommend him to anyone looking for a tutor to help them with their studies.”
+              </p>
+            </div>
+
+            <div class="review-author">
+              — Freddie, GCSE Student
+            </div>
+          </div>
 
         </div>
 
@@ -1799,10 +1817,11 @@ function buildDotField(field) {
 
   const sectionRect = section.getBoundingClientRect();
   const focusRect = focus.getBoundingClientRect();
-  const clearTarget = field.dataset.clearTarget
-    ? section.querySelector(field.dataset.clearTarget)
-    : null;
-  const clearRect = clearTarget ? clearTarget.getBoundingClientRect() : null;
+  const clearTargets = field.dataset.clearTarget
+    ? Array.from(section.querySelectorAll(field.dataset.clearTarget))
+    : [];
+  const clearRects = clearTargets.map(target => target.getBoundingClientRect());
+  const clearRect = clearRects[0] || null;
   const clearPadding = Number(field.dataset.clearPadding || 28);
   const isMobile = window.innerWidth <= 768;
   const clearKeepTopRows = isMobile ? 0 : Number(field.dataset.clearKeepTopRows || 0);
@@ -1827,19 +1846,21 @@ function buildDotField(field) {
     for (let col = 0; col < cols; col += 1) {
       const x = cols === 1 ? centerX : (col / (cols - 1)) * sectionRect.width;
       const y = rows === 1 ? centerY : (row / (rows - 1)) * sectionRect.height;
-      const clearTop = clearRect ? clearRect.top - sectionRect.top - clearPadding : 0;
-      const keptTopLimit = clearTop + clearKeepTopRows * (sectionRect.height / (rows - 1));
-      const isInKeptTopRow = clearRect && clearKeepTopRows && y >= clearTop && y <= keptTopLimit;
       const isInKeptNumberedRow = clearRect && clearKeepRows.includes(row + 1);
       const isInKeptNumberedColumn = clearRect && clearKeepColumns.includes(col + 1);
-      const isInClearedArea = clearRect
-        && !isInKeptTopRow
-        && !isInKeptNumberedRow
-        && !isInKeptNumberedColumn
-        && x >= clearRect.left - sectionRect.left - clearPadding
-        && x <= clearRect.right - sectionRect.left + clearPadding
-        && y >= clearRect.top - sectionRect.top - clearPadding
-        && y <= clearRect.bottom - sectionRect.top + clearPadding;
+      const isInClearedArea = clearRects.some((rect) => {
+        const clearTop = rect.top - sectionRect.top - clearPadding;
+        const keptTopLimit = clearTop + clearKeepTopRows * (sectionRect.height / (rows - 1));
+        const isInKeptTopRow = clearKeepTopRows && y >= clearTop && y <= keptTopLimit;
+
+        return !isInKeptTopRow
+          && !isInKeptNumberedRow
+          && !isInKeptNumberedColumn
+          && x >= rect.left - sectionRect.left - clearPadding
+          && x <= rect.right - sectionRect.left + clearPadding
+          && y >= rect.top - sectionRect.top - clearPadding
+          && y <= rect.bottom - sectionRect.top + clearPadding;
+      });
 
       if (isInClearedArea) continue;
 
