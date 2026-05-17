@@ -524,7 +524,20 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
+  align-items: start;
   margin-top: 2rem;
+}
+.review-grid.masonry-ready {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.review-masonry-column {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 .modal-close {
   position: absolute;
@@ -717,7 +730,10 @@ html, body {
   .subjects-grid,
   .why-grid,
   .pricing-grid,
-  .tutors-grid,
+  .tutors-grid {
+    grid-template-columns: 1fr;
+  }
+
   .review-grid {
     grid-template-columns: 1fr;
   }
@@ -1334,6 +1350,27 @@ html, body {
 
             <div class="review-author">
               — Adam, GCSE Student
+            </div>
+          </div>
+          <div class="review-card">
+            <div class="review-stars" aria-label="5 out of 5 stars"><svg class="icon icon-fill" aria-hidden="true"><use href="#icon-star"></use></svg><svg class="icon icon-fill" aria-hidden="true"><use href="#icon-star"></use></svg><svg class="icon icon-fill" aria-hidden="true"><use href="#icon-star"></use></svg><svg class="icon icon-fill" aria-hidden="true"><use href="#icon-star"></use></svg><svg class="icon icon-fill" aria-hidden="true"><use href="#icon-star"></use></svg></div>
+
+            <div class="review-text">
+              <p>
+                “Harry has been a great Biology tutor over the past 4 months since my mocks. His lessons are always engaging, interactive, and enjoyable, which makes learning much easier and more interesting. He explains topics really clearly and breaks down difficult concepts in a way that is very easy to understand.
+              </p>
+
+              <p>
+                Harry is also extremely supportive during lessons. He always takes the time to answer every question in detail and makes sure I fully understand each topic before moving on. The sessions feel very productive and have helped me improve in all aspects of Biology GCSE.
+              </p>
+
+              <p>
+                Since starting lessons with Harry, I’ve felt much more prepared for exams. I would definitely recommend him to anyone looking for a Biology tutor who is knowledgeable, encouraging, and genuinely invested in helping students improve.”
+              </p>
+            </div>
+
+            <div class="review-author">
+              — Armaan, GCSE Student
             </div>
           </div>
           <div class="review-card">
@@ -1996,15 +2033,64 @@ reviewSubmitAnyway?.addEventListener('click', () => {
 
 function toggleMenu() {document.getElementById('mobileMenu').classList.toggle('open');}
 
+function resetReviewMasonry(grid) {
+  const columns = Array.from(grid.querySelectorAll(':scope > .review-masonry-column'));
+
+  if (!columns.length) {
+    return;
+  }
+
+  const cards = columns.flatMap(column => Array.from(column.children));
+  grid.replaceChildren(...cards);
+  grid.classList.remove('masonry-ready');
+}
+
+function layoutReviewMasonry() {
+  const useMasonry = window.innerWidth > 768;
+
+  document.querySelectorAll('.review-grid').forEach(grid => {
+    resetReviewMasonry(grid);
+
+    if (!useMasonry) {
+      return;
+    }
+
+    const cards = Array.from(grid.children);
+
+    if (cards.length < 3) {
+      return;
+    }
+
+    const columns = [document.createElement('div'), document.createElement('div')];
+
+    columns.forEach(column => {
+      column.className = 'review-masonry-column';
+      grid.appendChild(column);
+    });
+
+    grid.classList.add('masonry-ready');
+
+    cards.forEach(card => {
+      const shortestColumn = columns[0].offsetHeight <= columns[1].offsetHeight ? columns[0] : columns[1];
+      shortestColumn.appendChild(card);
+    });
+  });
+}
+
 function openModal(id) {
   document.getElementById(id).classList.add('open');
   document.body.style.overflow = 'hidden';
+  requestAnimationFrame(layoutReviewMasonry);
 }
 
 function closeModal(id) {
   document.getElementById(id).classList.remove('open');
   document.body.style.overflow = 'auto';
 }
+
+window.addEventListener('resize', () => {
+  requestAnimationFrame(layoutReviewMasonry);
+});
 
 /* CLOSE WHEN CLICKING OUTSIDE */
 window.onclick = function(event) {
