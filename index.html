@@ -759,6 +759,7 @@ html, body {
 }
 
 .review-form-section input,
+.review-form-section select,
 .review-form-section textarea {
   width: 100%;
   padding: 0.95rem 1rem;
@@ -766,6 +767,18 @@ html, body {
   border-radius: 18px;
   font-size: 0.95rem;
   font-family: inherit;
+}
+
+.review-form-section select {
+  background: var(--white);
+}
+
+.review-role-other {
+  display: none;
+}
+
+.review-role-other.open {
+  display: block;
 }
 
 .review-form-section textarea {
@@ -1743,11 +1756,21 @@ html, body {
           required
         >
 
+        <select name="student_role" id="studentRole" required>
+          <option value="" selected disabled>I am a...</option>
+          <option value="GCSE Student">GCSE Student</option>
+          <option value="GCSE Parent">GCSE Parent</option>
+          <option value="A-Level Student">A-Level Student</option>
+          <option value="A-Level Parent">A-Level Parent</option>
+          <option value="Other">Other (please specify)</option>
+        </select>
+
         <input
           type="text"
-          name="student_role"
-          placeholder="e.g. GCSE Student or Parent"
-          required
+          name="student_role_other"
+          id="studentRoleOther"
+          class="review-role-other"
+          placeholder="Please specify"
         >
 
         <textarea
@@ -1921,7 +1944,22 @@ const reviewConsentValue = document.getElementById('reviewConsentValue');
 const reviewConsentPrompt = document.getElementById('reviewConsentPrompt');
 const reviewConsentAccept = document.getElementById('reviewConsentAccept');
 const reviewSubmitAnyway = document.getElementById('reviewSubmitAnyway');
+const studentRole = document.getElementById('studentRole');
+const studentRoleOther = document.getElementById('studentRoleOther');
 let reviewConsentPromptSeen = false;
+
+studentRole?.addEventListener('change', () => {
+  const isOther = studentRole.value === 'Other';
+  studentRoleOther?.classList.toggle('open', isOther);
+
+  if (studentRoleOther) {
+    studentRoleOther.required = isOther;
+
+    if (!isOther) {
+      studentRoleOther.value = '';
+    }
+  }
+});
 
 if (reviewForm && reviewConsentCheckbox && reviewConsentValue) {
   reviewConsentCheckbox.addEventListener('change', () => {
