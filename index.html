@@ -247,6 +247,10 @@
   object-fit: contain;
 }
 
+.tutor-photo-wrap .scarlet-photo {
+  object-position: center;
+}
+
 /* placeholder */
 .tutor-placeholder {
   display: flex;
@@ -329,6 +333,10 @@
 /* mobile */
 @media (max-width: 768px) {
 
+  html {
+    background-size: 40px 40px;
+  }
+
   .tutors-carousel-panel {
     padding: 1rem;
     margin-left: -0.25rem;
@@ -348,6 +356,10 @@
 
   .tutor-photo-wrap {
     height: 150px;
+  }
+
+  .tutor-photo-wrap .scarlet-photo {
+    object-position: center;
   }
 
   .tutor-body {
@@ -1331,6 +1343,35 @@ html, body {
   </div>
 </div>
 
+      <!-- ══ TUTOR 5: SCARLET ══ -->
+      <div class="tutor-card">
+  <div class="tutor-photo-wrap">
+    <img src="Scarlet_website_photo.jpeg" alt="Scarlet B" class="scarlet-photo">
+  </div>
+
+  <div class="tutor-body">
+
+    <div class="tutor-name">Scarlet B</div>
+
+    <span class="tutor-tag">
+      Maths · Geography
+    </span>
+
+    <p class="tutor-bio">
+      Hi there! I'm Scarlet. I'm currently an undergraduate Geography student at The University of Edinburgh, where I am developing a strong understanding of both human and physical geography.
+    </p>
+
+    <div class="mini-review">
+      <span class="rating-icons" aria-label="5 out of 5 stars"><svg class="icon icon-fill" aria-hidden="true"><use href="#icon-star"></use></svg><svg class="icon icon-fill" aria-hidden="true"><use href="#icon-star"></use></svg><svg class="icon icon-fill" aria-hidden="true"><use href="#icon-star"></use></svg><svg class="icon icon-fill" aria-hidden="true"><use href="#icon-star"></use></svg><svg class="icon icon-fill" aria-hidden="true"><use href="#icon-star"></use></svg></span> “Patient and understanding”
+    </div>
+
+    <button class="bio-toggle" onclick="openModal('scarletModal')">
+      Read more <svg class="icon" aria-hidden="true"><use href="#icon-chevron-down"></use></svg>
+    </button>
+
+  </div>
+</div>
+
         </div>
       </div>
     </div>
@@ -1746,6 +1787,78 @@ html, body {
 
 </div>
 
+<!-- SCARLET MODAL -->
+<div class="tutor-modal" id="scarletModal">
+
+  <div class="modal-content">
+
+    <button class="modal-close" onclick="closeModal('scarletModal')">
+      <svg class="icon" aria-hidden="true"><use href="#icon-x"></use></svg>
+      <span class="sr-only">Close</span>
+    </button>
+
+    <div class="modal-grid">
+
+      <div class="modal-left">
+
+        <div class="modal-photo">
+          <img src="Scarlet_website_photo.jpeg" alt="Scarlet B">
+        </div>
+
+      </div>
+
+      <div class="modal-right">
+
+        <h2 class="modal-name">Scarlet B</h2>
+
+        <span class="tutor-tag">
+          Maths · Geography
+        </span>
+
+        <div class="modal-bio">
+
+          <p>
+            Hi there! I'm Scarlet. I'm currently an undergraduate Geography student at The University of Edinburgh, where I am developing a strong understanding of both human and physical geography.
+          </p>
+
+          <p>
+            Having completed my GCSEs and A-Levels at Highgate School, I have a thorough understanding of current exam requirements and the challenges students face as they prepare for assessments. This experience means I can offer not only subject support but also practical guidance on revision strategies, exam technique, and building confidence under pressure.
+          </p>
+
+          <p>
+            I have always enjoyed working with young people and find it incredibly rewarding to help students understand difficult topics and reach their academic goals. I aim to create a supportive, encouraging, and engaging learning environment where students feel comfortable asking questions and developing their skills, with each session tailored to their needs.
+          </p>
+
+        </div>
+
+        <h3 style="margin-top:2.5rem; font-family:'Cormorant Garamond', serif; font-size:2rem;">
+          Student Reviews
+        </h3>
+
+        <div class="review-grid">
+
+          <div class="review-card">
+            <div class="review-stars" aria-label="5 out of 5 stars"><svg class="icon icon-fill" aria-hidden="true"><use href="#icon-star"></use></svg><svg class="icon icon-fill" aria-hidden="true"><use href="#icon-star"></use></svg><svg class="icon icon-fill" aria-hidden="true"><use href="#icon-star"></use></svg><svg class="icon icon-fill" aria-hidden="true"><use href="#icon-star"></use></svg><svg class="icon icon-fill" aria-hidden="true"><use href="#icon-star"></use></svg></div>
+
+            <div class="review-text">
+              “Scarlet was patient and understanding when helping my daughter with topics she was struggling with in Maths. She is very reliable and I recommend her highly!”
+            </div>
+
+            <div class="review-author">
+              — Laura, GCSE Parent
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
 <!-- PRICING -->
 <section id="pricing">
   <div class="container">
@@ -1903,6 +2016,7 @@ html, body {
           <option value="Mohammad A">Mohammad A</option>
           <option value="Eleanor H">Eleanor H</option>
           <option value="Frankie B">Frankie B</option>
+          <option value="Scarlet B">Scarlet B</option>
         </select>
 
         <select name="student_role" id="studentRole" required>
@@ -2071,8 +2185,8 @@ function buildDotField(field) {
 
       const distance = Math.hypot(x - centerX, y - centerY);
       const closeness = Math.max(0, 1 - distance / maxDistance);
-      const size = isMobile ? 0.9 + (1 - closeness) * 2.6 : 1.1 + (1 - closeness) * 4.2;
-      const opacity = isMobile ? 0.05 + (1 - closeness) * 0.34 : 0.08 + (1 - closeness) * 0.66;
+      const size = isMobile ? 0.8 + (1 - closeness) * 2.2 : 1.1 + (1 - closeness) * 4.2;
+      const opacity = isMobile ? 0.04 + (1 - closeness) * 0.28 : 0.08 + (1 - closeness) * 0.66;
 
       const dot = document.createElement('span');
       dot.className = 'focus-dot';
@@ -2098,8 +2212,8 @@ function buildDotField(field) {
         const x = cols === 1 ? centerX : (col / (cols - 1)) * sectionRect.width;
         const distance = Math.hypot(x - centerX, y - centerY);
         const closeness = Math.max(0, 1 - distance / maxDistance);
-        const size = isMobile ? 0.9 + (1 - closeness) * 2.6 : 1.1 + (1 - closeness) * 4.2;
-        const opacity = isMobile ? 0.05 + (1 - closeness) * 0.34 : 0.08 + (1 - closeness) * 0.66;
+        const size = isMobile ? 0.8 + (1 - closeness) * 2.2 : 1.1 + (1 - closeness) * 4.2;
+        const opacity = isMobile ? 0.04 + (1 - closeness) * 0.28 : 0.08 + (1 - closeness) * 0.66;
 
         const dot = document.createElement('span');
         dot.className = 'focus-dot';

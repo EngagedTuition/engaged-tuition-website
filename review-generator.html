@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Review HTML Generator</title>
+</head>
+<body>
+
+  <h1>Review HTML Generator</h1>
+
+  <input id="name" placeholder="Name">
+  <br><br>
+
+  <input id="role" placeholder="I am a GCSE/A-Level Student/Parent">
+  <br><br>
+
+  <textarea id="review" placeholder="Paste review here" rows="10" cols="80"></textarea>
+  <br><br>
+
+  <button onclick="generateHTML()">Generate HTML</button>
+
+  <h2>Copy this:</h2>
+  <textarea id="output" rows="20" cols="100"></textarea>
+
+  <script>
+    function generateHTML() {
+      const name = document.getElementById("name").value;
+      const role = document.getElementById("role").value;
+      const review = document.getElementById("review").value;
+
+      const paragraphs = review
+        .split(/\n+/)
+        .filter(p => p.trim() !== "")
+        .map(p => `              <p>
+              ${p.trim()}
+              </p>`)
+        .join("\n              <br>\n");
+
+      const html = `<div class="review-card">
+            <div class="review-stars">★★★★★</div>
+
+            <div class="review-text">
+${paragraphs}
+            </div>
+
+            <div class="review-author">
+              — ${name}, ${role}
+            </div>
+          </div>`;
+
+      document.getElementById("output").value = html;
+    }
+  </script>
+
+</body>
+</html>
