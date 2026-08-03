@@ -83,19 +83,63 @@
 }
 
   /* HERO */
-  .hero { background: var(--sand-light); padding: 7rem 3rem 6rem; text-align: center; position: relative; overflow: hidden; isolation: isolate; }
-  .hero > :not(.dot-field) { position: relative; z-index: 2; }
+  .hero { background: var(--sand-light); padding: 7rem 3rem 6rem; text-align: center; position: relative; overflow: visible; isolation: isolate; }
+  .hero > :not(.dot-field, .hero-proof) { position: relative; z-index: 2; }
   .dot-field { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
   .focus-dot { position: absolute; width: var(--dot-size); height: var(--dot-size); border-radius: 50%; background: rgba(0,0,0,var(--dot-opacity)); transform: translate(-50%, -50%); }
-  .hero-copy { position: relative; z-index: 1; width: fit-content; max-width: 100%; margin: 0 auto; }
+  .hero-copy { position: relative; z-index: 1; width: fit-content; max-width: min(720px, 100%); margin: 0 auto; }
   .hero-logo-display { display: inline-block; margin-bottom: 3rem; overflow: visible; position: relative; isolation: isolate; background: #E8D5C0; }
   .hero-logo-display::before { content: ""; position: absolute; inset: -18px; z-index: -1; background: #E8D5C0; pointer-events: none; }
   .hero-logo-display img { position: relative; z-index: 1; display: block; width: 340px; max-width: 90vw; height: auto; border-radius: 0; }
   .hero-logo-word { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.8rem, 6vw, 4.2rem); font-weight: 400; color: var(--charcoal); letter-spacing: -0.02em; line-height: 1; }
   .hero-logo-sub { font-family: 'Jost', sans-serif; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.45em; text-transform: uppercase; color: var(--charcoal-mid); margin-top: 0.4rem; }
   .hero-tagline { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.6vw, 2.8rem); font-weight: 400; font-style: italic; color: var(--charcoal-mid); margin-bottom: 1.15rem; }
-  .hero-sub { font-size: clamp(1.05rem, 1.35vw, 1.18rem); color: var(--muted); max-width: 650px; margin: 0 auto 2.7rem; font-weight: 300; line-height: 1.85; }
-  .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .hero-sub { font-size: clamp(1.05rem, 1.35vw, 1.18rem); color: var(--muted); max-width: 650px; margin: 0 auto 1.5rem; font-weight: 300; line-height: 1.85; }
+  .hero-proof { position: absolute; inset: 0; pointer-events: none; margin: 0; min-height: 280px; }
+  .hero-proof-group { position: absolute; width: 270px; height: 72px; z-index: 2; pointer-events: none; }
+  .hero-proof-group--left { left: 1.2vw; top: 15%; }
+  .hero-proof-group--right { right: 1.2vw; top: 15%; }
+  .hero-proof-group--middle { right: 1.8vw; top: 43%; }
+  .hero-proof-group--middle-left { left: 1.8vw; top: 43%; }
+  .hero-proof-group--bottom-left { left: 2.4vw; top: 70%; }
+  .hero-proof-group--bottom-right { right: 2.4vw; top: 70%; }
+  .hero-proof-person { position: absolute; width: 56px; height: 56px; color: var(--accent); z-index: 3; opacity: 0.95; pointer-events: none; isolation: isolate; }
+  .hero-proof-person::before { content: ""; position: absolute; inset: 2px 0; border-radius: 999px; background: rgba(245,237,227,0.92); box-shadow: 0 0 0 7px rgba(245,237,227,0.72); z-index: 0; }
+  .hero-proof-person svg { position: relative; z-index: 1; width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+  .hero-proof-bubble { position: absolute; display: inline-block; padding: 0.8rem 1rem; border: 1px solid rgba(140,110,80,0.22); border-radius: 999px; background: rgba(255,255,255,0.95); box-shadow: 0 10px 24px rgba(28,28,26,0.06); font-size: 0.9rem; color: var(--charcoal-mid); font-weight: 500; line-height: 1.45; max-width: 220px; z-index: 2; pointer-events: none; }
+  .hero-proof-bubble::after { content: ""; position: absolute; width: 0; height: 0; }
+  .hero-proof-bubble--small { font-size: 0.82rem; padding: 0.7rem 0.95rem; max-width: 200px; }
+  .hero-proof-group--left .hero-proof-person { left: 0; top: 50%; transform: translate(-6%, -50%); }
+  .hero-proof-group--left .hero-proof-bubble { left: 40px; top: 50%; transform: translateY(-50%) rotate(-4deg); }
+  .hero-proof-group--left .hero-proof-bubble::after { top: 50%; left: -10px; transform: translateY(-50%); border-top: 8px solid transparent; border-bottom: 8px solid transparent; border-right: 10px solid rgba(255,255,255,0.95); }
+  .hero-proof-group--right .hero-proof-person { right: 0; top: 50%; transform: translate(6%, -50%); }
+  .hero-proof-group--right .hero-proof-bubble { right: 40px; top: 50%; transform: translateY(-50%) rotate(4deg); }
+  .hero-proof-group--right .hero-proof-bubble::after { top: 50%; right: -10px; transform: translateY(-50%); border-top: 8px solid transparent; border-bottom: 8px solid transparent; border-left: 10px solid rgba(255,255,255,0.95); }
+  .hero-proof-group--middle .hero-proof-person { right: 0; top: 50%; transform: translate(6%, -50%); }
+  .hero-proof-group--middle .hero-proof-bubble { right: 40px; top: 50%; transform: translateY(-50%) rotate(2deg); }
+  .hero-proof-group--middle .hero-proof-bubble::after { top: 50%; right: -10px; transform: translateY(-50%); border-top: 8px solid transparent; border-bottom: 8px solid transparent; border-left: 10px solid rgba(255,255,255,0.95); }
+  .hero-proof-group--center .hero-proof-person { left: 50%; bottom: 0; transform: translateX(-50%); }
+  .hero-proof-group--center .hero-proof-bubble { left: 50%; top: 0; transform: translateX(-50%) rotate(-1deg); }
+  .hero-proof-group--center .hero-proof-bubble::after { left: 50%; bottom: -10px; transform: translateX(-50%); border-left: 8px solid transparent; border-right: 8px solid transparent; border-top: 10px solid rgba(255,255,255,0.95); }
+  .hero-proof-group--bottom-left .hero-proof-person { left: 0; top: 50%; transform: translate(-6%, -50%); }
+  .hero-proof-group--bottom-left .hero-proof-bubble { left: 40px; top: 50%; transform: translateY(-50%) rotate(-2deg); }
+  .hero-proof-group--bottom-left .hero-proof-bubble::after { top: 50%; left: -10px; transform: translateY(-50%); border-top: 8px solid transparent; border-bottom: 8px solid transparent; border-right: 10px solid rgba(255,255,255,0.95); }
+  .hero-proof-group--bottom-right .hero-proof-person { right: 0; top: 50%; transform: translate(6%, -50%); }
+  .hero-proof-group--bottom-right .hero-proof-bubble { right: 40px; top: 50%; transform: translateY(-50%) rotate(2deg); }
+  .hero-proof-group--bottom-right .hero-proof-bubble::after { top: 50%; right: -10px; transform: translateY(-50%); border-top: 8px solid transparent; border-bottom: 8px solid transparent; border-left: 10px solid rgba(255,255,255,0.95); }
+  .hero-proof-note { margin: 0.65rem auto 0; display: inline-block; padding: 0.9rem 1.1rem; border: 1px solid rgba(140,110,80,0.16); border-radius: 16px; background: var(--white); box-shadow: 0 8px 24px rgba(28,28,26,0.04); font-size: 0.84rem; color: var(--muted); letter-spacing: 0.03em; position: relative; z-index: 4; }
+  @media (max-width: 768px) {
+    .hero { padding: 5rem 1.2rem 4rem; }
+    .hero-proof { position: static; min-height: auto; margin: 1rem auto 1.2rem; }
+    .hero-proof-group,
+    .hero-proof-person,
+    .hero-proof-bubble { position: static; transform: none; max-width: 100%; }
+    .hero-proof-group { display: none; }
+    .hero-proof-person { display: none; }
+    .hero-proof-bubble { display: none; }
+    .hero-proof-note { width: 100%; margin-top: 0; }
+  }
+  .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1.2rem; }
   .btn-primary { background: var(--charcoal); color: var(--white); border: none; padding: 0.95rem 2.45rem; border-radius: 50px; font-size: 0.95rem; font-weight: 500; font-family: 'Jost', sans-serif; letter-spacing: 0.06em; cursor: pointer; text-decoration: none; display: inline-block; transition: background 0.2s, transform 0.15s; }
   .btn-primary:hover { background: var(--accent); transform: translateY(-1px); }
   .btn-secondary { background: transparent; color: var(--charcoal); border: 1.5px solid var(--sand-deeper); padding: 0.95rem 2.45rem; border-radius: 50px; font-size: 0.95rem; font-weight: 500; font-family: 'Jost', sans-serif; letter-spacing: 0.06em; cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.2s; }
@@ -984,6 +1028,39 @@ html, body {
   <symbol id="icon-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M4 7l8 6 8-6"/></symbol>
   <symbol id="icon-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
   <symbol id="icon-external" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4L10 14"/><path d="M20 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h5"/></symbol>
+  <symbol id="person-short-hair" viewBox="0 0 64 64">
+    <path d="M23.8 21.2c.1-6 4.1-10.5 9.8-10.5 5.6 0 9.7 4.5 9.7 10.5 0 6.4-4.1 11.1-9.7 11.1s-9.9-4.7-9.8-11.1z"/>
+    <path d="M24.2 18.5c2.4-4.7 7.4-6.7 12.6-5.4 3.2.8 5.2 2.6 6.2 5.1"/>
+    <path d="M24.2 24.2c-2 .1-3.3 1.5-3.1 3.4.2 1.7 1.5 2.9 3.2 3"/>
+    <path d="M42.7 24.2c2 .1 3.3 1.5 3.1 3.4-.2 1.7-1.5 2.9-3.2 3"/>
+    <path d="M28.7 33.5v4.3l-5.4 2.3c-5.4 2.3-8.3 6.4-8.9 12.7"/>
+    <path d="M38.2 33.5v4.3l5.4 2.3c5.4 2.3 8.3 6.4 8.9 12.7"/>
+    <path d="M25.5 44.2c2.2 2.1 4.9 3.2 8 3.2s5.8-1.1 8-3.2"/>
+    <path d="M24 41.5c-1.5 3.2-2.1 7-1.8 11.5"/>
+    <path d="M43 41.5c1.5 3.2 2.1 7 1.8 11.5"/>
+  </symbol>
+  <symbol id="person-long-hair" viewBox="0 0 64 64">
+    <path d="M23.5 21.3c.1-6.1 4.2-10.8 9.8-10.8s9.8 4.7 9.8 10.8c0 6.3-4.2 10.9-9.8 10.9s-9.9-4.6-9.8-10.9z"/>
+    <path d="M22.4 31.2c-2.8-5.8-2.2-13.6 2-17.9 4.1-4.2 12.7-4.3 17.1-.1 4.6 4.4 5 12.3 2.5 18.3"/>
+    <path d="M24.2 25.1c-2 .1-3.2 1.4-3 3.2.2 1.6 1.5 2.8 3.2 2.9"/>
+    <path d="M42.5 25.1c2 .1 3.2 1.4 3 3.2-.2 1.6-1.5 2.8-3.2 2.9"/>
+    <path d="M28.6 33.5v4.5l-5.7 2.4c-5.1 2.2-8 6.4-8.6 12.6"/>
+    <path d="M38 33.5V38l5.7 2.4c5.1 2.2 8 6.4 8.6 12.6"/>
+    <path d="M24.2 43.8c2.4 2.5 5.4 3.8 9.1 3.8s6.7-1.3 9.1-3.8"/>
+    <path d="M21 29c-.9 5.8-.8 11.9.3 18.4"/>
+    <path d="M45.7 29c.9 5.8.8 11.9-.3 18.4"/>
+  </symbol>
+  <symbol id="person-crop-hair" viewBox="0 0 64 64">
+    <path d="M24.3 21.5c0-5.9 3.8-10.2 9.1-10.2 5.4 0 9.2 4.3 9.2 10.2 0 6.5-3.8 11-9.2 11s-9.1-4.5-9.1-11z"/>
+    <path d="M24.7 18.8c1.8-4.1 5.4-6.1 9.7-6.1 3.6 0 6.3 1.6 8 4.6"/>
+    <path d="M25.1 24.5c-1.8.1-3 1.4-2.8 3 .2 1.6 1.3 2.6 2.8 2.8"/>
+    <path d="M41.7 24.5c1.8.1 3 1.4 2.8 3-.2 1.6-1.3 2.6-2.8 2.8"/>
+    <path d="M29 33.7v4.3l-5.7 2.4c-5.2 2.2-8.1 6.3-8.7 12.4"/>
+    <path d="M37.8 33.7V38l5.7 2.4c5.2 2.2 8.1 6.3 8.7 12.4"/>
+    <path d="M26 43.8l7.4 5.5 7.4-5.5"/>
+    <path d="M22.6 41.8c-.9 3.3-1.2 7-1 11"/>
+    <path d="M44.2 41.8c.9 3.3 1.2 7 1 11"/>
+  </symbol>
 </svg>
 
 <!-- NAVIGATION -->
@@ -1020,17 +1097,68 @@ html, body {
 
 <!-- HERO -->
 <section class="hero">
-  <div class="dot-field" data-focus-target=".hero-logo-display" data-clear-target=".hero-copy, .hero-btns a" data-clear-padding="12" aria-hidden="true"></div>
+  <div class="dot-field" data-focus-target=".hero-logo-display" data-clear-target=".hero-logo-display, .hero-tagline, .hero-sub, .hero-proof-note, .hero-btns a, .hero-proof-person" data-clear-padding="9" aria-hidden="true"></div>
   <div class="hero-logo-display">
     <img src="Engaged_Tuition_Logo.png" alt="Engaged Tuition logo">
   </div>
   <div class="hero-copy">
     <p class="hero-tagline">Building confidence. Delivering results.</p>
     <p class="hero-sub">Expert online tutoring from current university students who recently achieved top grades in the same exams, offering engaging and approachable support from KS3 through to A-Level.</p>
+    <div class="hero-proof-note">Built purely through recommendations and word of mouth — no sales-led approach, no hard sell.</div>
+  </div>
+  <div class="hero-proof" aria-hidden="true">
+    <div class="hero-proof-group hero-proof-group--left">
+      <div class="hero-proof-person">
+        <svg viewBox="0 0 64 64" role="img">
+          <use href="#person-short-hair"></use>
+        </svg>
+      </div>
+      <span class="hero-proof-bubble">“From Grade 6 to aiming for Grade 9s in both subjects”</span>
+    </div>
+    <div class="hero-proof-group hero-proof-group--left hero-proof-group--middle-left">
+      <div class="hero-proof-person">
+        <svg viewBox="0 0 64 64" role="img">
+          <use href="#person-long-hair"></use>
+        </svg>
+      </div>
+      <span class="hero-proof-bubble hero-proof-bubble--small">“We actually look forward to our lessons every week instead of dreading them!”</span>
+    </div>
+    <div class="hero-proof-group hero-proof-group--right">
+      <div class="hero-proof-person">
+        <svg viewBox="0 0 64 64" role="img">
+          <use href="#person-long-hair"></use>
+        </svg>
+      </div>
+      <span class="hero-proof-bubble">“A huge improvement in both grades and attitude towards studying”</span>
+    </div>
+    <div class="hero-proof-group hero-proof-group--right hero-proof-group--middle">
+      <div class="hero-proof-person">
+        <svg viewBox="0 0 64 64" role="img">
+          <use href="#person-crop-hair"></use>
+        </svg>
+      </div>
+      <span class="hero-proof-bubble hero-proof-bubble--small">“He actually makes learning science really fun instead of boring!”</span>
+    </div>
+    <div class="hero-proof-group hero-proof-group--bottom-left">
+      <div class="hero-proof-person">
+        <svg viewBox="0 0 64 64" role="img">
+          <use href="#person-long-hair"></use>
+        </svg>
+      </div>
+      <span class="hero-proof-bubble hero-proof-bubble--small">“Grades improved from 5/6s to 7/8s”</span>
+    </div>
+    <div class="hero-proof-group hero-proof-group--bottom-right">
+      <div class="hero-proof-person">
+        <svg viewBox="0 0 64 64" role="img">
+          <use href="#person-short-hair"></use>
+        </svg>
+      </div>
+      <span class="hero-proof-bubble hero-proof-bubble--small">“Harry is personable, highly organised and skillful at teaching”</span>
+    </div>
   </div>
   <div class="hero-btns">
-    <a href="https://forms.gle/xrj77tJBsSCDFwHMA" target="_blank" class="btn-primary">Book a Session</a>
-    <a href="#why" class="btn-secondary">Find Out More</a>
+    <a href="https://calendar.app.google/fePmboDbSJs9EuF86" target="_blank" class="btn-primary">Book a Free 15 Minute Consultation</a>
+    <a href="mailto:engagedtuitiontoday@gmail.com" class="btn-secondary">Get in Touch</a>
   </div>
 </section>
 
