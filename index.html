@@ -1337,6 +1337,11 @@ html, body {
         <span class="subject-levels">KS3 · GCSE · A-Level</span>
       </div>
       <div class="subject-pill">
+        <span class="subject-icon"><svg class="icon" aria-hidden="true"><use href="#icon-chart"></use></svg></span>
+        <span class="subject-name">Economics</span>
+        <span class="subject-levels">A-Level</span>
+      </div>
+      <div class="subject-pill">
         <span class="subject-icon"><svg class="icon" aria-hidden="true"><use href="#icon-brain"></use></svg></span>
         <span class="subject-name">Psychology</span>
         <span class="subject-levels">KS3 · GCSE</span>
@@ -1464,7 +1469,31 @@ html, body {
   </div>
 </div>
 
-      <!-- ══ TUTOR 4: FRANKIE ══ -->
+<!-- ══ TUTOR 4: JONAH ══ -->
+      <div class="tutor-card">
+  <div class="tutor-photo-wrap">
+    <img src="Jonah_website_photo.jpg" alt="Jonah S, Economics tutor">
+  </div>
+
+  <div class="tutor-body">
+
+    <div class="tutor-name">Jonah S</div>
+
+    <span class="tutor-tag">
+      Economics
+    </span>
+
+    <p class="tutor-bio">
+      Hello! I'm Jonah. I'm a third-year Economics student at the University of Edinburgh. Having studied and tutored a wide range of subjects, I know the best ways to tailor sessions so content can be fully understood.
+    </p>
+
+    <button class="bio-toggle" onclick="openModal('jonahModal')">
+      Read more <svg class="icon" aria-hidden="true"><use href="#icon-chevron-down"></use></svg>
+    </button>
+
+  </div>
+</div>
+      <!-- ══ TUTOR 5: FRANKIE ══ -->
       <div class="tutor-card">
   <div class="tutor-photo-wrap">
     <img src="Frankie_website_photo.jpeg" alt="Frankie B">
@@ -1493,7 +1522,7 @@ html, body {
   </div>
 </div>
 
-      <!-- ══ TUTOR 5: SCARLET ══ -->
+      <!-- ══ TUTOR 6: SCARLET ══ -->
       <div class="tutor-card">
   <div class="tutor-photo-wrap">
     <img src="Scarlet_website_photo.jpeg" alt="Scarlet B" class="scarlet-photo">
@@ -1888,6 +1917,57 @@ html, body {
 
 </div>
 
+<!-- JONAH MODAL -->
+<div class="tutor-modal" id="jonahModal">
+
+  <div class="modal-content">
+
+    <button class="modal-close" onclick="closeModal('jonahModal')">
+      <svg class="icon" aria-hidden="true"><use href="#icon-x"></use></svg>
+      <span class="sr-only">Close</span>
+    </button>
+
+    <div class="modal-grid">
+
+      <div class="modal-left">
+
+        <div class="modal-photo">
+          <img src="Jonah_website_photo.jpg" alt="Jonah S">
+        </div>
+
+      </div>
+
+      <div class="modal-right">
+
+        <h2 class="modal-name">Jonah S</h2>
+
+        <span class="tutor-tag">
+          Economics
+        </span>
+
+        <div class="modal-bio">
+
+          <p>
+            Hello! I'm Jonah. I'm a third-year Economics student at the University of Edinburgh. Having both studied and tutored a wide range of subjects, varying from politics and economics, to maths and chemistry, I know the best ways to tailor sessions in order to make sure that the content can be fully understood.
+          </p>
+
+          <p>
+            I strongly believe that the best way to learn topics is through a mixture of discussion and questions. I like to start the session talking through the content and then move on to questions in order to figure out where we can improve.
+          </p>
+
+          <p>
+            This way students can keep engaged and are both actively thinking and listening. I also find that this type of dynamic makes it easier for students to ask questions.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
 
 <!-- FRANKIE MODAL -->
 <div class="tutor-modal" id="frankieModal">
