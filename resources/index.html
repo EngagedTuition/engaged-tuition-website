@@ -562,7 +562,7 @@ h1 {
 
 <header>
 
-<a href="/" class="back-btn">
+<a href="/" class="back-btn" onclick="fadeToPage(event, '/')">
 ← Back
 </a>
 
@@ -921,7 +921,7 @@ function fadeToPage(event, url) {
     document.body.classList.add("fade-out");
 
     setTimeout(() => {
-        window.location.href = url;
+        window.location.assign(url);
     }, 500);
 }
 
