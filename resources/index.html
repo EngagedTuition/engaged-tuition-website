@@ -916,17 +916,13 @@ function toggle(id, button) {
     }
 
 function fadeToPage(event, url) {
-
     event.preventDefault();
 
     document.body.classList.add("fade-out");
 
     setTimeout(() => {
-
         window.location.href = url;
-
-    }, 400);
-
+    }, 500);
 }
 
     // Update parent dropdown height when opening nested menus
