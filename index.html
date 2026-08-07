@@ -174,8 +174,90 @@ src="https://www.facebook.com/tr?id=2065606021016607&ev=PageView&noscript=1"
   .btn-secondary:hover { background: var(--sand); border-color: var(--accent); transform: translateY(-1px); }
 
   /* STRIP */
-  .strip { background: var(--charcoal); color: rgba(255,255,255,0.8); padding: 1.6rem 2rem; display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; }
-  .strip-item { font-size: 0.8rem; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; display: flex; align-items: center; gap: 0.6rem; }
+  .strip {
+
+    background:#1C1C1A;
+
+    color:white;
+
+    overflow:hidden;
+
+    width:100%;
+
+    padding:1rem 0;
+
+}
+
+
+.strip-track {
+
+    display:flex;
+
+    width:max-content;
+
+    animation:scroll 30s linear infinite;
+
+}
+
+
+.strip-content {
+
+    display:flex;
+
+    flex-shrink:0;
+
+}
+
+
+.strip-item {
+
+    flex-shrink:0;
+
+    white-space:nowrap;
+
+    padding-right:80px;
+
+    font-family:'Jost', sans-serif;
+
+    font-size:1rem;
+
+}
+
+
+/* animation */
+
+@keyframes scroll {
+
+    from {
+        transform:translateX(0);
+    }
+
+    to {
+        transform:translateX(-50%);
+    }
+
+}
+
+
+
+@media(max-width:600px){
+
+    .strip-item {
+
+        font-size:0.85rem;
+
+        padding-right:50px;
+
+    }
+
+
+    .strip-track {
+
+        animation-duration:35s;
+
+    }
+
+}
   .strip-dot { color: var(--sand-deeper); font-size: 1rem; }
 
   /* SECTIONS */
@@ -482,19 +564,38 @@ src="https://www.facebook.com/tr?id=2065606021016607&ev=PageView&noscript=1"
   #pricing { background: var(--white); }
   .pricing-top { margin-bottom: 3rem; }
   .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-  .pricing-card { border: 1px solid var(--border); border-radius: var(--radius); padding: 2.25rem; background: var(--white); position: relative; transition: transform 0.2s; }
+  .pricing-card { border: 1px solid var(--border); border-radius: var(--radius); padding: 32px 42px; background: var(--white); position: relative; transition: transform 0.2s; }
   .pricing-card:hover { transform: translateY(-3px); }
   .pricing-card.featured { background: var(--sand-light); border-color: var(--sand-deeper); }
   .featured-tag { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--charcoal); color: var(--white); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.3rem 1.1rem; border-radius: 50px; white-space: nowrap; }
   .pricing-eyebrow { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.4rem; }
-  .pricing-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; color: var(--charcoal); margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border); }
-  .pricing-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.65rem 0; border-bottom: 1px solid rgba(140,110,80,0.1); font-size: 0.92rem; }
+  .pricing-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; color: var(--charcoal); margin-bottom: 20px; padding-bottom: 1rem; border-bottom: 1px solid var(--border); }
+  .pricing-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: centre;
+  padding: 14px 0;
+  border-bottom: 1px solid #eee;
+}
   .pricing-row:last-of-type { border-bottom: none; }
   .p-type { color: var(--muted); font-weight: 300; }
   .p-price { font-weight: 600; color: var(--charcoal); }
-  .p-save { font-size: 0.75rem; color: var(--accent); font-weight: 600; margin-left: 0.4rem; }
-  .pricing-note { margin-top: 1.25rem; background: var(--white); border-radius: var(--radius-sm); border: 1px solid var(--border); padding: 0.85rem 1rem; font-size: 0.85rem; color: var(--muted); line-height: 1.65; }
-
+   .p-save {
+  font-size: 0.8rem;
+  margin-left: 8px;
+  font-weight: 600;
+  color: #8c6b45;
+}
+  .pricing-note {
+  margin-top: 18px;
+  padding: 16px 18px;
+  line-height: 1.5;
+}
+.pricing-row:nth-child(5) {
+  background: #faf7f2;
+  border-radius: 8px;
+  padding: 14px 12px;
+}
   /* CONTACT */
   #contact { background: var(--sand-light); }
   .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
@@ -746,7 +847,7 @@ html, body {
   overflow-x: hidden;
 }
 
-* {
+img {
   max-width: 100%;
 }
 
@@ -1013,6 +1114,111 @@ html, body {
   max-width: 750px;
   margin-inline: auto;
 }
+.btn-resources {
+
+    position: relative;
+    overflow: hidden;
+
+    background: #8B6B4A;
+    color: white;
+
+    border: 2px solid #8B6B4A;
+
+    padding: 1rem 2rem;
+
+    border-radius: 50px;
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+    display: inline-block;
+
+    transition: all 0.3s ease;
+
+    animation: resourcePulse 2.5s infinite;
+
+}
+
+
+/* Soft glowing pulse */
+
+@keyframes resourcePulse {
+
+    0% {
+        box-shadow: 0 0 0 0 rgba(139,107,74,0.5);
+    }
+
+    70% {
+        box-shadow: 0 0 0 12px rgba(139,107,74,0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(139,107,74,0);
+    }
+
+}
+
+
+
+/* Moving shine effect */
+
+.btn-resources::before {
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-100%;
+
+    width:50%;
+
+    height:100%;
+
+    background:linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.4),
+        transparent
+    );
+
+    transition:0.5s;
+
+}
+
+
+.btn-resources:hover::before {
+
+    left:120%;
+
+}
+
+
+
+/* Hover */
+
+.btn-resources:hover {
+
+    transform:translateY(-5px) scale(1.05);
+
+    background:#1C1C1A;
+
+    border-color:#1C1C1A;
+
+}
+
+
+
+body {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+body.fade-out {
+    opacity: 0;
+}
   /* ANIMATIONS */
   @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
   .hero-logo-display { animation: fadeUp 0.6s ease both; }
@@ -1067,6 +1273,7 @@ html, body {
     <path d="M24 41.5c-1.5 3.2-2.1 7-1.8 11.5"/>
     <path d="M43 41.5c1.5 3.2 2.1 7 1.8 11.5"/>
   </symbol>
+  
   <symbol id="person-long-hair" viewBox="0 0 64 64">
     <path d="M23.5 21.3c.1-6.1 4.2-10.8 9.8-10.8s9.8 4.7 9.8 10.8c0 6.3-4.2 10.9-9.8 10.9s-9.9-4.6-9.8-10.9z"/>
     <path d="M22.4 31.2c-2.8-5.8-2.2-13.6 2-17.9 4.1-4.2 12.7-4.3 17.1-.1 4.6 4.4 5 12.3 2.5 18.3"/>
@@ -1184,16 +1391,60 @@ html, body {
     </div>
   </div>
   <div class="hero-btns">
-    <a href="https://calendar.app.google/fePmboDbSJs9EuF86" target="_blank" class="btn-primary">Book a Free 15 Minute Consultation</a>
     <a href="mailto:engagedtuitiontoday@gmail.com" class="btn-secondary">Get in Touch</a>
+    <a href="/resources" class="btn-resources" onclick="fadeToPage(event, this.href)">
+    Browse Resources
+</a>
   </div>
 </section>
 
 <div class="strip">
-  <div class="strip-item"><span class="strip-dot">—</span> KS3 · GCSE · A-Level</div>
-  <div class="strip-item"><span class="strip-dot">—</span> Sciences · Maths · English · Spanish · Geography · Business · Psychology</div>
-  <div class="strip-item"><span class="strip-dot">—</span> From £35/hour with packages</div>
-  <div class="strip-item"><span class="strip-dot">—</span> Tutors with first-hand exam experience</div>
+
+    <div class="strip-track">
+
+        <div class="strip-content">
+
+            <div class="strip-item">
+                KS3 · GCSE · A-Level
+            </div>
+
+            <div class="strip-item">
+                Sciences · Maths · English · Spanish · Geography · Business · Economics · Psychology
+            </div>
+
+            <div class="strip-item">
+                From £35/hour with packages
+            </div>
+
+            <div class="strip-item">
+                Tutors with first-hand exam experience
+            </div>
+
+        </div>
+
+
+        <div class="strip-content">
+
+            <div class="strip-item">
+                KS3 · GCSE · A-Level
+            </div>
+
+            <div class="strip-item">
+                Sciences · Maths · English · Spanish · Geography · Business · Economics · Psychology
+            </div>
+
+            <div class="strip-item">
+                From £35/hour with packages
+            </div>
+
+            <div class="strip-item">
+                Tutors with first-hand exam experience
+            </div>
+
+        </div>
+
+    </div>
+
 </div>
 
 
@@ -2128,46 +2379,66 @@ html, body {
   </div>
 
 </div>
-
 <!-- PRICING -->
 <section id="pricing">
   <div class="container">
     <div class="pricing-top">
       <span class="section-eyebrow">Transparent Pricing</span>
-      <h2 class="section-title">Simple, fair pricing<span class="sr-only"> for KS3, GCSE &amp; A-Level Tutoring</span></h2>      <p class="section-body">No hidden fees. Save more with our flexible 10-session packages.</p>
+      <h2 class="section-title">
+        Simple, fair pricing<span class="sr-only"> for KS3, GCSE &amp; A-Level Tutoring</span>
+      </h2>
+      <p class="section-body">
+      No hidden fees. Save £50 with our flexible 10-session packages.
+    </p>
     </div>
+
     <div class="pricing-grid">
 
-      <div class="pricing-card">
+      <div class="pricing-card featured">
         <div class="pricing-eyebrow">KS3 &amp; GCSE</div>
         <h3>Key Stage 3 &amp; GCSE</h3>
+
         <div class="pricing-row">
           <span class="p-type">Single session</span>
-          <span class="p-price">£40 / hour</span>
+          <span class="p-price">£40</span>
         </div>
+
         <div class="pricing-row">
           <span class="p-type">10-session package</span>
-          <span class="p-price">£35 / hour <span class="p-save">Save £50</span></span>
+          <span class="p-price">
+            £35
+            <span class="p-save">Save £50</span>
+          </span>
         </div>
+
         <div class="pricing-note">
-          Package total: <strong>£350</strong> for 10 hours - a saving of £50 compared to booking individually.
+          <strong>£350 total</strong> for 10 hours of personalised tuition.
+          Flexible scheduling and consistent tutor support.
         </div>
       </div>
 
-      <div class="pricing-card featured">
-        <div class="featured-tag">A-Level</div>
+
+        <div class="pricing-card">
+
         <div class="pricing-eyebrow">A-Level</div>
-        <h3>Sixth Form &amp; A-Level</h3>
+        <h3>A-Level</h3>
+
         <div class="pricing-row">
           <span class="p-type">Single session</span>
-          <span class="p-price">£45 / hour</span>
+          <span class="p-price">£45</span>
         </div>
+
         <div class="pricing-row">
           <span class="p-type">10-session package</span>
-          <span class="p-price">£40 / hour <span class="p-save">Save £50</span></span>
+          <span class="p-price">
+            £40
+            <span class="p-save">Save £50</span>
+          </span>
         </div>
+
         <div class="pricing-note">
-          Package total: <strong>£400</strong> for 10 hours - a saving of £50 compared to booking individually.
+          <strong>£400 total</strong> for 10 hours of advanced exam preparation,
+          confidence building and subject mastery.
         </div>
       </div>
 
@@ -2176,14 +2447,53 @@ html, body {
 </section>
 
 <div class="strip">
-  <div class="strip-item"><span class="strip-dot">—</span> KS3 · GCSE · A-Level</div>
-  <div class="strip-item"><span class="strip-dot">—</span> Sciences · Maths · English · Spanish · Geography · Business · Psychology</div>
-  <div class="strip-item"><span class="strip-dot">—</span> From £35/hour with packages</div>
-  <div class="strip-item"><span class="strip-dot">—</span> Tutors with first-hand exam experience</div>
+
+    <div class="strip-track">
+
+        <div class="strip-content">
+
+            <div class="strip-item">
+                KS3 · GCSE · A-Level
+            </div>
+
+            <div class="strip-item">
+                Sciences · Maths · English · Spanish · Geography · Business · Economics · Psychology
+            </div>
+
+            <div class="strip-item">
+                From £35/hour with packages
+            </div>
+
+            <div class="strip-item">
+                Tutors with first-hand exam experience
+            </div>
+
+        </div>
+
+
+        <div class="strip-content">
+
+            <div class="strip-item">
+                — KS3 · GCSE · A-Level
+            </div>
+
+            <div class="strip-item">
+                — Sciences · Maths · English · Spanish · Geography · Business · Economics · Psychology
+            </div>
+
+            <div class="strip-item">
+                — From £35/hour with packages
+            </div>
+
+            <div class="strip-item">
+                — Tutors with first-hand exam experience
+            </div>
+
+        </div>
+
+    </div>
+
 </div>
-
-
-<!-- CONTACT -->
 <!-- CONTACT -->
 <section id="contact">
   <div class="dot-field" data-focus-target=".contact-grid" data-clear-target=".contact-grid" data-clear-keep-top-rows="1" data-clear-keep-rows="10" data-clear-keep-columns="8,17,26" aria-hidden="true"></div>
@@ -2385,7 +2695,7 @@ html, body {
 <footer>
   <span class="footer-logo-top">Engaged</span>
   <span class="footer-logo-sub">T &nbsp; U &nbsp; I &nbsp; T &nbsp; I &nbsp; O &nbsp; N</span>
-  <p>KS3 · GCSE · A-Level tutoring in Sciences, Maths, English, Spanish, Geography, Business &amp; Psychology</p>
+  <p>KS3 · GCSE · A-Level tutoring in Sciences, Maths, English, Spanish, Geography, Business, Economics &amp; Psychology</p>
   <div class="footer-divider"></div>
   <p><a href="mailto:engagedtuitiontoday@gmail.com">engagedtuitiontoday@gmail.com</a></p>
   <p style="margin-top: 1rem; font-size: 0.78rem; opacity: 0.4;">&copy; 2025 Engaged Tuition. All rights reserved.</p>
@@ -2640,6 +2950,21 @@ document.addEventListener('keydown', function(event) {
     document.body.style.overflow = 'auto';
   }
 });
+
+
+function fadeToPage(event, url) {
+
+    event.preventDefault();
+
+    document.body.classList.add("fade-out");
+
+    setTimeout(function() {
+        window.location.href = url;
+    }, 500);
+
+}
+
+
 
 </script>
 

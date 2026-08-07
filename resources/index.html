@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Resources | Engaged Tuition</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+
+<style>
+
+:root {
+    --sand-light:#F5EDE3;
+    --sand:#E8D5C0;
+    --charcoal:#1C1C1A;
+    --accent:#8B6B4A;
+    --white:#FDFAF7;
+}
+
+
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+.container {
+
+    animation:fadeUp 0.8s ease;
+
+}
+
+
+@keyframes fadeUp {
+
+    from {
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+
+    to {
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+body {
+
+    background:
+    radial-gradient(
+        circle at top left,
+        rgba(139,107,74,0.35),
+        transparent 35%
+    ),
+    radial-gradient(
+        circle at bottom right,
+        rgba(232,213,192,0.25),
+        transparent 45%
+    ),
+    #E6D8C8;
+
+    color:var(--charcoal);
+
+    font-family:'Jost', sans-serif;
+
+}
+
+
+
+header {
+
+    padding:2rem 5%;
+
+}
+
+
+.back-btn {
+
+    position:relative;
+
+    overflow:hidden;
+
+    display:inline-block;
+
+    text-decoration:none;
+
+    color:var(--charcoal);
+
+    border:1px solid var(--sand);
+
+    padding:0.7rem 1.5rem;
+
+    border-radius:50px;
+
+    transition:0.3s ease;
+
+    z-index:1;
+
+}
+
+
+.back-btn::before {
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:0;
+
+    width:100%;
+
+    height:0;
+
+    background:var(--charcoal);
+
+    transition:0.3s ease;
+
+    z-index:-1;
+
+}
+
+
+.back-btn:hover {
+
+    color:white;
+
+}
+
+
+.back-btn:hover::before {
+
+    height:100%;
+
+}
+
+/* Page fade transition */
+
+body {
+    opacity:1;
+    transition:opacity 0.4s ease;
+}
+
+body.fade-out {
+    opacity:0;
+}
+
+body::before {
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    background-image:
+    radial-gradient(
+        rgba(28,28,26,0.04) 1px,
+        transparent 1px
+    );
+
+    background-size:25px 25px;
+
+    pointer-events:none;
+
+    z-index:-1;
+
+}
+
+.container {
+
+    max-width:1100px;
+
+    margin:auto;
+
+    padding:2rem 5% 5rem;
+
+}
+
+
+
+h1 {
+    font-family:'Cormorant Garamond', serif;
+
+    font-size:4.5rem;
+
+    font-weight:600;
+
+    letter-spacing:-0.03em;
+
+    background:linear-gradient(
+        90deg,
+        #1C1C1A,
+        #8B6B4A
+    );
+
+    background-clip: text;
+    -webkit-background-clip: text;
+
+    color:transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+
+.subtitle {
+
+    color:#6B6560;
+
+    margin-bottom:3rem;
+
+}
+
+
+
+
+/* MAIN SUBJECT BUTTON */
+
+.subject-btn {
+
+    width:100%;
+
+    padding:1.8rem 2rem;
+
+    border:none;
+
+    background:var(--sand-light);
+
+    border-radius:18px;
+
+    font-family:'Cormorant Garamond', serif;
+
+    font-size:2rem;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    cursor:pointer;
+
+    margin-bottom:1rem;
+    
+    box-shadow:
+    0 10px 30px rgba(28,28,26,0.06);
+
+    transition:all 0.35s ease;
+
+}
+
+
+
+.subject-btn {
+
+    position:relative;
+
+    overflow:hidden;
+
+    z-index:1;
+
+}
+
+
+.subject-btn::before {
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:0;
+
+    width:100%;
+
+    height:0;
+
+    background:var(--sand);
+
+    transition:0.3s ease;
+
+    z-index:-1;
+
+}
+
+
+.subject-btn:hover::before {
+
+    height:100%;
+
+}
+.subject-btn:hover {
+
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 15px 40px rgba(28,28,26,0.12);
+
+}
+
+
+
+/* LEVEL / EXAM BOARD */
+
+.exam-container,
+.resource-container {
+
+    max-height:0;
+    overflow:hidden;
+    transition:max-height 0.5s ease;
+
+}
+
+
+.exam-container.open,
+.resource-container.open {
+
+    display:block;
+
+}
+
+
+
+.exam-btn {
+
+    width:100%;
+
+    padding:1.3rem 1.5rem;
+
+    background:white;
+
+    border:1px solid var(--sand);
+
+    border-radius:14px;
+
+    font-size:1.3rem;
+
+    text-align:left;
+
+    cursor:pointer;
+
+    margin-bottom:1rem;
+
+}
+
+
+
+.exam-btn {
+
+    position:relative;
+
+    overflow:hidden;
+
+    z-index:1;
+
+}
+
+
+.exam-btn::before {
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:0;
+
+    width:100%;
+
+    height:0;
+
+    background:var(--sand-light);
+
+    transition:0.3s ease;
+
+    z-index:-1;
+
+}
+
+
+.exam-btn:hover::before {
+
+    height:100%;
+
+}
+
+
+
+/* RESOURCE LIST */
+
+
+
+
+.resources {
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+    gap:1.5rem;
+
+    padding:1rem 0 2rem;
+
+}
+
+
+
+.card {
+
+    background:rgba(253,250,247,0.95);
+
+    border:1px solid rgba(139,107,74,0.25);
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 15px 40px rgba(28,28,26,0.12);
+
+    transition:all 0.3s ease;
+
+}
+
+.card:hover {
+
+    transform:translateY(-8px);
+
+    box-shadow:
+    0 25px 60px rgba(28,28,26,0.15);
+
+}
+
+
+
+.card img {
+
+    width:100%;
+
+    height:160px;
+
+    object-fit:cover;
+
+}
+
+
+
+.card-body {
+
+    padding:1.3rem;
+
+}
+
+
+
+.card h2 {
+
+    font-family:'Cormorant Garamond', serif;
+
+    font-size:1.7rem;
+
+    margin-bottom:0.7rem;
+
+}
+
+
+
+.card p {
+
+    color:#6B6560;
+
+    line-height:1.5;
+
+    margin-bottom:1.2rem;
+
+}
+
+
+
+.card a {
+
+    position:relative;
+
+    overflow:hidden;
+
+    display:inline-block;
+
+    background:var(--charcoal);
+
+    color:white;
+
+    padding:0.7rem 1.5rem;
+
+    border-radius:50px;
+
+    text-decoration:none;
+
+    transition:0.3s ease;
+
+    z-index:1;
+
+}
+
+
+.card a::before {
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:0;
+
+    width:100%;
+
+    height:0;
+
+    background:var(--accent);
+
+    transition:0.3s ease;
+
+    z-index:-1;
+
+}
+
+
+.card a:hover::before {
+
+    height:100%;
+
+}
+
+
+.card a:hover {
+
+    transform:translateY(-3px);
+
+}
+
+
+</style>
+
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<a href="../index.html" class="back-btn" onclick="fadeToPage(event, this.href)">
+← Back
+</a>
+
+</header>
+
+
+
+<div class="container">
+
+
+<h1>Study Resources</h1>
+
+<p class="subtitle">
+Select a subject and find resources tailored to your specification.
+</p>
+
+
+<!-- FREE REVISION PACKS -->
+
+<button class="subject-btn" onclick="toggle('free', this)">
+    Free Revision Packs
+    <span>+</span>
+</button>
+
+
+<div id="free" class="exam-container">
+
+
+    <div class="resources">
+
+
+        <!-- FREE BIOLOGY PACK -->
+
+        <div class="card">
+
+            <img src="biology-spec-point-1.jpg">
+
+            <div class="card-body">
+
+                <span class="free-badge">FREE</span>
+
+                <h2>Edexcel IGCSE Biology: Spec Point 1 Notes</h2>
+
+                <p>
+                    A free revision pack covering Edexcel IGCSE Biology Specification Point 1, helping students build a strong foundation in the core concepts required for the course.
+                </p>
+
+                <a href="https://shop.beacons.ai/engagedtuition/0fff9c4c-955b-4449-8acf-eb3c0a0ce513" target="_blank">
+                    View Pack
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- FREE CHEMISTRY PACK -->
+
+        <div class="card">
+
+            <img src="chemistry-spec-point-1.jpg">
+
+            <div class="card-body">
+
+                <span class="free-badge">FREE</span>
+
+                <h2>Edexcel IGCSE Chemistry: Spec Point 1 Notes</h2>
+
+                <p>
+                    A free revision pack covering Edexcel IGCSE Chemistry Specification Point 1, helping students build a strong foundation in the core concepts required for the course.
+                </p>
+
+                <a href="https://shop.beacons.ai/engagedtuition/e0539665-84ac-4836-b2b0-758a341ff7fe" target="_blank">
+                    View Pack
+                </a>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+</div>
+<!-- BIOLOGY -->
+
+<button class="subject-btn" onclick="toggle('biology', this)">
+Biology
+<span>+</span>
+</button>
+
+
+<div id="biology" class="exam-container">
+
+
+<button class="exam-btn" onclick="toggle('edexcel-biology', this)">
+Edexcel IGCSE Biology ▼
+</button>
+
+
+<div id="edexcel-biology" class="resource-container">
+
+
+<div class="resources">
+
+
+<div class="card">
+
+<img src="biology-spec-point-1.jpg">
+
+<div class="card-body">
+
+<span class="free-badge">FREE</span>
+
+<h2>Edexcel IGCSE Biology: Spec Point 1 Notes</h2>
+
+<p>
+A free revision pack covering Edexcel IGCSE Biology Specification Point 1, helping students build a strong foundation in the core concepts required for the course.
+</p>
+
+<a href="https://shop.beacons.ai/engagedtuition/0fff9c4c-955b-4449-8acf-eb3c0a0ce513" target="_blank">
+View Pack
+</a>
+
+</div>
+
+</div>
+
+
+
+<div class="card">
+
+<img src="biology-spec-point-2.jpg">
+
+<div class="card-body">
+
+<h2>Edexcel IGCSE Biology: Spec Point 2 Notes</h2>
+
+<p>
+A revision pack covering Edexcel IGCSE Biology Specification Point 2, helping students build a strong foundation in the core concepts required for the course.
+</p>
+
+<a href="https://shop.beacons.ai/engagedtuition/820e8e66-db2a-4d20-a0d2-80b89242bd0c" target="_blank">
+View Pack
+</a>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="biology-spec-point-3.jpg">
+
+<div class="card-body">
+
+<h2>Edexcel IGCSE Biology: Spec Point 3 Notes</h2>
+
+<p>
+A revision pack covering Edexcel IGCSE Biology Specification Point 3, helping students build a strong foundation in the core concepts required for the course.
+</p>
+
+<a href="https://shop.beacons.ai/engagedtuition/5671c4d9-9e9f-43ac-9f81-207d7ba5aed5" target="_blank">
+View Pack
+</a>
+
+</div>
+
+</div>
+<div class="card">
+
+<img src="biology-spec-point-4.jpg">
+
+<div class="card-body">
+
+<h2>Edexcel IGCSE Biology: Spec Point 4 Notes</h2>
+
+<p>
+A revision pack covering Edexcel IGCSE Biology Specification Point 4, helping students build a strong foundation in the core concepts required for the course.
+</p>
+
+<a href="https://shop.beacons.ai/engagedtuition/7963e129-a110-4889-9a54-1014ed6f202b" target="_blank">
+View Pack
+</a>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<img src="biology-spec-point-5.jpg">
+
+<div class="card-body">
+
+<h2>Edexcel IGCSE Biology: Spec Point 5 Notes</h2>
+
+<p>
+A revision pack covering Edexcel IGCSE Biology Specification Point 5, helping students build a strong foundation in the core concepts required for the course.
+</p>
+
+<a href="https://shop.beacons.ai/engagedtuition/db465f9d-a290-4c6c-9e40-22c8066341b4" target="_blank">
+View Pack
+</a>
+
+</div>
+
+</div>
+
+
+</div> <!-- closes resources -->
+
+</div> <!-- closes edexcel-biology -->
+
+</div> <!-- closes biology -->
+
+
+
+
+<!-- CHEMISTRY -->
+
+
+<button class="subject-btn" onclick="toggle('chemistry', this)">
+Chemistry
+<span>+</span>
+</button>
+
+
+
+<div id="chemistry" class="exam-container">
+
+
+<button class="exam-btn" onclick="toggle('edexcel-chemistry', this)">
+Edexcel IGCSE Chemistry ▼
+</button>
+
+
+
+<div id="edexcel-chemistry" class="resource-container">
+
+
+<div class="resources">
+
+
+<div class="card">
+
+<img src="chemistry-spec-point-1.jpg">
+
+<div class="card-body">
+
+<span class="free-badge">FREE</span>
+
+<h2>Edexcel IGCSE Chemistry: Spec Point 1 Notes</h2>
+
+<p>
+A revision pack covering Edexcel IGCSE Chemistry Specification Point 1, helping students build a strong foundation in the core concepts required for the course.
+</p>
+
+<a href="https://shop.beacons.ai/engagedtuition/e0539665-84ac-4836-b2b0-758a341ff7fe" target="_blank">
+View Pack
+</a>
+
+</div>
+
+</div>
+
+
+
+
+<div class="card">
+
+<img src="chemistry-spec-point-2.jpg">
+
+<div class="card-body">
+
+<h2>Edexcel IGCSE Chemistry: Spec Point 2 Notes</h2>
+
+<p>
+A revision pack covering Edexcel IGCSE Chemistry Specification Point 2, helping students build a strong foundation in the core concepts required for the course.
+</p>
+
+<a href="https://shop.beacons.ai/engagedtuition/d8082048-ccd2-43d2-8cc9-8fd515e7e60d" target="_blank">
+View Pack
+</a>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="chemistry-spec-point-3.jpg">
+
+<div class="card-body">
+
+<h2>Edexcel IGCSE Chemistry: Spec Point 3 Notes</h2>
+
+<p>
+A revision pack covering Edexcel IGCSE Chemistry Specification Point 3, helping students build a strong foundation in the core concepts required for the course.
+</p>
+
+<a href="https://shop.beacons.ai/engagedtuition/fc493a7c-06ee-4ec8-a634-db20ef9134bb" target="_blank">
+View Pack
+</a>
+
+</div>
+
+</div>
+
+
+
+
+</div>
+
+</div>
+
+</div>
+
+
+
+</div>
+
+
+<script>
+
+function toggle(id, button) {
+
+    const content = document.getElementById(id);
+    const symbol = button.querySelector("span");
+
+
+    if (content.style.maxHeight) {
+
+        content.style.maxHeight = null;
+
+        if (symbol) {
+            symbol.innerHTML = "+";
+        }
+
+    } else {
+
+        content.style.maxHeight = content.scrollHeight + "px";
+
+        if (symbol) {
+            symbol.innerHTML = "−";
+        }
+
+    }
+
+function fadeToPage(event, url) {
+
+    event.preventDefault();
+
+    document.body.classList.add("fade-out");
+
+    setTimeout(() => {
+
+        window.location.href = url;
+
+    }, 400);
+
+}
+
+    // Update parent dropdown height when opening nested menus
+    setTimeout(() => {
+
+        const parent = content.parentElement.closest(".exam-container, .resource-container");
+
+        if (parent && parent.style.maxHeight) {
+
+            parent.style.maxHeight = parent.scrollHeight + "px";
+
+        }
+
+    }, 500);
+
+}
+
+</script>
+
+</body>
+
+</html>
