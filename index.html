@@ -197,6 +197,8 @@ src="https://www.facebook.com/tr?id=2065606021016607&ev=PageView&noscript=1"
 
     animation:scroll 30s linear infinite;
 
+    will-change:transform;
+
 }
 
 
@@ -205,6 +207,10 @@ src="https://www.facebook.com/tr?id=2065606021016607&ev=PageView&noscript=1"
     display:flex;
 
     flex-shrink:0;
+
+    width:max-content;
+
+  align-items:center;
 
 }
 
@@ -240,24 +246,6 @@ src="https://www.facebook.com/tr?id=2065606021016607&ev=PageView&noscript=1"
 
 
 
-@media(max-width:600px){
-
-    .strip-item {
-
-        font-size:0.85rem;
-
-        padding-right:50px;
-
-    }
-
-
-    .strip-track {
-
-        animation-duration:35s;
-
-    }
-
-}
   .strip-dot { color: var(--sand-deeper); font-size: 1rem; }
 
   /* SECTIONS */
@@ -901,21 +889,28 @@ img {
   }
 
   .strip {
-    padding-left: 1rem;
-    padding-right: 1rem;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.8rem;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .strip-item {
-    display: block;
-    width: min(100%, 430px);
-    margin-inline: auto;
+    font-size: 0.82rem;
+    width: min(78vw, 430px);
+    flex: 0 0 min(78vw, 430px);
+    white-space: normal;
     text-align: center;
-    font-size: 0.76rem;
-    line-height: 1.75;
-    letter-spacing: 0.075em;
+    line-height: 1.5;
+    letter-spacing: 0.025em;
+    padding-right: 0;
+  }
+
+  .strip-content {
+    width: max-content;
+    gap: 1.5rem;
+  }
+
+  .strip-track {
+    animation-duration: 24s;
   }
 
   .strip-dot {
