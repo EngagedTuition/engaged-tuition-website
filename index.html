@@ -404,9 +404,13 @@ src="https://www.facebook.com/tr?id=2065606021016607&ev=PageView&noscript=1"
 }
 
 .tutor-photo-wrap .jonah-h-photo {
+  position: relative;
+  z-index: 1;
   object-fit: contain;
-  background: var(--sand-light);
-  clip-path: inset(0 0 4% 0);
+}
+
+.jonah-h-photo-wrap {
+  background: var(--sand);
 }
 
 .tutor-photo-wrap .scarlet-photo {
@@ -694,9 +698,8 @@ src="https://www.facebook.com/tr?id=2065606021016607&ev=PageView&noscript=1"
 
 .modal-photo img.jonah-h-photo {
   max-height: 65vh;
-  object-fit: contain;
-  background: var(--sand-light);
-  clip-path: inset(0 0 4% 0);
+  object-fit: cover;
+  object-position: center top;
 }
 
 .modal-right {
@@ -798,7 +801,10 @@ src="https://www.facebook.com/tr?id=2065606021016607&ev=PageView&noscript=1"
   }
 
   .modal-photo img.jonah-h-photo {
+    height: 190px;
     max-height: 190px;
+    object-fit: cover;
+    object-position: center top;
   }
 
   .modal-right {
@@ -1864,8 +1870,8 @@ body.fade-out {
 
       <!-- ══ TUTOR: JONAH H ══ -->
       <div class="tutor-card">
-  <div class="tutor-photo-wrap">
-    <img src="Jonah_H_website_photo.jpeg" alt="Jonah H, Latin and Psychology tutor" class="jonah-h-photo">
+  <div class="tutor-photo-wrap jonah-h-photo-wrap">
+    <img src="Jonah_H_website_photo_cropped.jpeg" alt="Jonah H, Latin and Psychology tutor" class="jonah-h-photo">
   </div>
 
   <div class="tutor-body">
@@ -2319,7 +2325,7 @@ body.fade-out {
 
       <div class="modal-left">
         <div class="modal-photo">
-          <img src="Jonah_H_website_photo.jpeg" alt="Jonah H" class="jonah-h-photo">
+          <img src="Jonah_H_website_photo_cropped.jpeg" alt="Jonah H" class="jonah-h-photo">
         </div>
       </div>
 
