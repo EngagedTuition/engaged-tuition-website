@@ -7,7 +7,7 @@
 <link rel="canonical" href="https://engagedtuition.co.uk/">
 <!-- Search Engine Optimisation (SEO) Tags -->
 <meta name="description" content="Expert online tuition across the UK with specialised in-person support in London. Professional KS3, GCSE, and A-Level tutoring to boost grades and confidence.">
-<meta name="keywords" content="online tuition UK, GCSE tutoring London, A-Level tutor online, KS3 tuition, online maths tutor, exam prep UK, Engaged Tuition">
+<meta name="keywords" content="online tuition UK, GCSE tutoring London, A-Level tutor online, KS3 tuition, online maths tutor, Latin tutoring, psychology tutoring, exam prep UK, Engaged Tuition">
 <meta name="robots" content="index, follow">
 
 <!-- Open Graph Tags (For Facebook, Instagram & WhatsApp sharing) -->
@@ -403,6 +403,12 @@ src="https://www.facebook.com/tr?id=2065606021016607&ev=PageView&noscript=1"
   object-fit: contain;
 }
 
+.tutor-photo-wrap .jonah-h-photo {
+  object-fit: contain;
+  background: var(--sand-light);
+  clip-path: inset(0 0 4% 0);
+}
+
 .tutor-photo-wrap .scarlet-photo {
   object-position: center;
 }
@@ -686,6 +692,13 @@ src="https://www.facebook.com/tr?id=2065606021016607&ev=PageView&noscript=1"
   object-fit: cover;
 }
 
+.modal-photo img.jonah-h-photo {
+  max-height: 65vh;
+  object-fit: contain;
+  background: var(--sand-light);
+  clip-path: inset(0 0 4% 0);
+}
+
 .modal-right {
   min-width: 0;
 }
@@ -782,6 +795,10 @@ src="https://www.facebook.com/tr?id=2065606021016607&ev=PageView&noscript=1"
     display: block;
     object-fit: contain;
     background: var(--sand-light);
+  }
+
+  .modal-photo img.jonah-h-photo {
+    max-height: 190px;
   }
 
   .modal-right {
@@ -1411,7 +1428,7 @@ body.fade-out {
             </div>
 
             <div class="strip-item">
-                Sciences · Maths · English · Spanish · German · Geography · Business · Psychology
+                Sciences · Maths · English · Spanish · German · Latin · Geography · Business · Psychology
             </div>
 
             <div class="strip-item">
@@ -1432,7 +1449,7 @@ body.fade-out {
             </div>
 
             <div class="strip-item">
-                Sciences · Maths · English · Spanish · German · Geography · Business · Psychology
+                Sciences · Maths · English · Spanish · German · Latin · Geography · Business · Psychology
             </div>
 
             <div class="strip-item">
@@ -1587,6 +1604,11 @@ body.fade-out {
         <span class="subject-levels">KS3 · GCSE</span>
       </div>
       <div class="subject-pill">
+        <span class="subject-icon"><svg class="icon" aria-hidden="true"><use href="#icon-language"></use></svg></span>
+        <span class="subject-name">Latin</span>
+        <span class="subject-levels">KS3 · GCSE · A-Level</span>
+      </div>
+      <div class="subject-pill">
         <span class="subject-icon"><svg class="icon" aria-hidden="true"><use href="#icon-globe"></use></svg></span>
         <span class="subject-name">Geography</span>
         <span class="subject-levels">KS3 · GCSE · A-Level</span>
@@ -1604,7 +1626,7 @@ body.fade-out {
       <div class="subject-pill">
         <span class="subject-icon"><svg class="icon" aria-hidden="true"><use href="#icon-brain"></use></svg></span>
         <span class="subject-name">Psychology</span>
-        <span class="subject-levels">KS3 · GCSE</span>
+        <span class="subject-levels">KS3 · GCSE · A-Level</span>
       </div>
     </div>
   </div>
@@ -1753,6 +1775,35 @@ body.fade-out {
 
   </div>
 </div>
+      <!-- ══ TUTOR 5: GEMMA ══ -->
+      <div class="tutor-card">
+  <div class="tutor-photo-wrap">
+    <img src="Gemma_website_photo.png" alt="Gemma W">
+  </div>
+
+  <div class="tutor-body">
+
+    <div class="tutor-name">Gemma W</div>
+
+    <span class="tutor-tag">
+      Biology · Chemistry · German · Maths
+    </span>
+
+    <p class="tutor-bio">
+      Hey, I'm Gemma! I am currently a third-year Biomedical Sciences student at the University of Edinburgh, specialising in Reproductive Biology. I am keen to help students build confidence in their academic abilities.
+    </p>
+
+    <div class="mini-review">
+      <span class="rating-icons" aria-label="5 out of 5 stars"><svg class="icon icon-fill" aria-hidden="true"><use href="#icon-star"></use></svg><svg class="icon icon-fill" aria-hidden="true"><use href="#icon-star"></use></svg><svg class="icon icon-fill" aria-hidden="true"><use href="#icon-star"></use></svg><svg class="icon icon-fill" aria-hidden="true"><use href="#icon-star"></use></svg><svg class="icon icon-fill" aria-hidden="true"><use href="#icon-star"></use></svg></span> “She got me from a failing grade to passing with a near top mark”
+    </div>
+
+    <button class="bio-toggle" onclick="openModal('gemmaModal')">
+      Read more <svg class="icon" aria-hidden="true"><use href="#icon-chevron-down"></use></svg>
+    </button>
+
+  </div>
+</div>
+
       <!-- ══ TUTOR 3: FRANKIE ══ -->
       <div class="tutor-card">
   <div class="tutor-photo-wrap">
@@ -1811,29 +1862,25 @@ body.fade-out {
   </div>
 </div>
 
-      <!-- ══ TUTOR 5: GEMMA ══ -->
+      <!-- ══ TUTOR: JONAH H ══ -->
       <div class="tutor-card">
   <div class="tutor-photo-wrap">
-    <img src="Gemma_website_photo.png" alt="Gemma W">
+    <img src="Jonah_H_website_photo.jpeg" alt="Jonah H, Latin and Psychology tutor" class="jonah-h-photo">
   </div>
 
   <div class="tutor-body">
 
-    <div class="tutor-name">Gemma W</div>
+    <div class="tutor-name">Jonah H</div>
 
     <span class="tutor-tag">
-      Biology · Chemistry · German · Maths
+      Latin · Psychology
     </span>
 
     <p class="tutor-bio">
-      Hey, I'm Gemma! I am currently a third-year Biomedical Sciences student at the University of Edinburgh, specialising in Reproductive Biology. I am keen to help students build confidence in their academic abilities.
+      Hello, I’m Jonah, a third year Classics student at the University of Edinburgh. I teach Latin and Psychology from KS3 to A-Level, and particularly enjoy helping students break challenging material into clear, manageable tasks.
     </p>
 
-    <div class="mini-review">
-      <span class="rating-icons" aria-label="5 out of 5 stars"><svg class="icon icon-fill" aria-hidden="true"><use href="#icon-star"></use></svg><svg class="icon icon-fill" aria-hidden="true"><use href="#icon-star"></use></svg><svg class="icon icon-fill" aria-hidden="true"><use href="#icon-star"></use></svg><svg class="icon icon-fill" aria-hidden="true"><use href="#icon-star"></use></svg><svg class="icon icon-fill" aria-hidden="true"><use href="#icon-star"></use></svg></span> “She got me from a failing grade to passing with a near top mark”
-    </div>
-
-    <button class="bio-toggle" onclick="openModal('gemmaModal')">
+    <button class="bio-toggle" onclick="openModal('jonahHModal')">
       Read more <svg class="icon" aria-hidden="true"><use href="#icon-chevron-down"></use></svg>
     </button>
 
@@ -2258,6 +2305,47 @@ body.fade-out {
 
 </div>
 
+<!-- JONAH H MODAL -->
+<div class="tutor-modal" id="jonahHModal">
+
+  <div class="modal-content">
+
+    <button class="modal-close" onclick="closeModal('jonahHModal')">
+      <svg class="icon" aria-hidden="true"><use href="#icon-x"></use></svg>
+      <span class="sr-only">Close</span>
+    </button>
+
+    <div class="modal-grid">
+
+      <div class="modal-left">
+        <div class="modal-photo">
+          <img src="Jonah_H_website_photo.jpeg" alt="Jonah H" class="jonah-h-photo">
+        </div>
+      </div>
+
+      <div class="modal-right">
+        <h2 class="modal-name">Jonah H</h2>
+        <span class="tutor-tag">Latin · Psychology</span>
+
+        <div class="modal-bio">
+          <p>Hello, I’m Jonah, a third year Classics student at the University of Edinburgh. My particular interests lie in Ancient court speeches and rhetoric.</p>
+
+          <p>I know how daunting a passage of Latin is when faced with a mountain of grammar, vocab and unfamiliar sentence structures. I really enjoy helping students break these down into much clearer and more manageable tasks.</p>
+
+          <p>Whether improving translation skills, revising vocabulary or preparing for exams, my aim is to help students understand not just what the answer is, but how to work it out for themselves.</p>
+
+          <p>I hope to build students’ confidence in Latin, help them see clear progress and, ideally, encourage them to enjoy the subject as much as I do.</p>
+
+          <p>Jonah teaches Latin and Psychology from KS3 to A-Level.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
 <!-- FRANKIE MODAL -->
 <div class="tutor-modal" id="frankieModal">
 
@@ -2584,7 +2672,7 @@ body.fade-out {
             </div>
 
             <div class="strip-item">
-                Sciences · Maths · English · Spanish · German · Geography · Business · Psychology
+                Sciences · Maths · English · Spanish · German · Latin · Geography · Business · Psychology
             </div>
 
             <div class="strip-item">
@@ -2605,7 +2693,7 @@ body.fade-out {
             </div>
 
             <div class="strip-item">
-                Sciences · Maths · English · Spanish · German · Geography · Business · Psychology
+                Sciences · Maths · English · Spanish · German · Latin · Geography · Business · Psychology
             </div>
 
             <div class="strip-item">
@@ -2823,7 +2911,7 @@ body.fade-out {
 <footer>
   <span class="footer-logo-top">Engaged</span>
   <span class="footer-logo-sub">T &nbsp; U &nbsp; I &nbsp; T &nbsp; I &nbsp; O &nbsp; N</span>
-  <p>KS3 · GCSE · A-Level tutoring in Sciences, Maths, English, Spanish, German, Geography, Business &amp; Psychology</p>
+  <p>KS3 · GCSE · A-Level tutoring in Sciences, Maths, English, Spanish, German, Latin, Geography, Business &amp; Psychology</p>
   <div class="footer-divider"></div>
   <p><a href="mailto:engagedtuitiontoday@gmail.com">engagedtuitiontoday@gmail.com</a></p>
   <p style="margin-top: 1rem; font-size: 0.78rem; opacity: 0.4;">&copy; 2025 Engaged Tuition. All rights reserved.</p>
