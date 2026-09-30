@@ -28,19 +28,6 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
-      - name: Generate extensionless page routes
-        run: |
-          find . -type f \( -name '*.html' -o -name 'sitemap.xml' \) ! -path './.git/*' -exec perl -pi -e 's/\.html(?=[<"?#])//' {} +
-          find . -type f -name '*.html' ! -name 'index.html' ! -path './.git/*' -print0 | while IFS= read -r -d '' source; do
-            route="${source#./}"
-            route="${route%.html}"
-            if [ "$route" = "Mock Exam Playbook" ]; then
-              route="mock-exam-playbook"
-            fi
-            mkdir -p "$route"
-            cp "$source" "$route/index.html"
-          done
-
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
