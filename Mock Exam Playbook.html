@@ -1,0 +1,205 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Mock Exam Playbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: one exam-paper column; mark allocations sit in the right margin like a real question paper */
+:root {
+  --paper: #f6f7f9;
+  --sheet: #ffffff;
+  --ink: #17223b;
+  --ink-soft: #4a5570;
+  --rule: #d9dde6;
+  --accent: #1d5c63;
+  --accent-ink: #ffffff;
+  --highlight: #fff1a8;
+  --highlight-ink: #17223b;
+  --display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --body: "Atkinson Hyperlegible", "Segoe UI", Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #10151f; --sheet: #171e2b; --ink: #e8ebf2; --ink-soft: #a3acc0;
+    --rule: #2b3446; --accent: #6cc3c9; --accent-ink: #0c1a1c;
+    --highlight: #5a4f14; --highlight-ink: #fff6c9; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #10151f; --sheet: #171e2b; --ink: #e8ebf2; --ink-soft: #a3acc0;
+  --rule: #2b3446; --accent: #6cc3c9; --accent-ink: #0c1a1c;
+  --highlight: #5a4f14; --highlight-ink: #fff6c9; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--paper); color: var(--ink);
+  font-family: var(--body); font-size: 17px; line-height: 1.6;
+  padding-inline: 16px; padding-block: 32px 64px;
+}
+.sheet {
+  max-width: 760px; margin: 0 auto; background: var(--sheet);
+  border: 1px solid var(--rule); border-radius: 4px;
+  padding-inline: clamp(20px, 5vw, 56px); padding-block: 40px 48px;
+}
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; line-height: 1.15; margin: 0; }
+h1 { font-size: clamp(2.2rem, 6vw, 3.4rem); font-weight: 800; letter-spacing: -0.02em; }
+h2 { font-size: 1.6rem; font-weight: 700; }
+h3 { font-size: 1.15rem; font-weight: 700; }
+p { margin: 0; max-width: 65ch; }
+a { color: var(--accent); }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+mark { background: var(--highlight); color: var(--highlight-ink); padding: 0 .15em; border-radius: 2px; }
+
+.eyebrow { font-family: var(--mono); font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); }
+.masthead { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; border-bottom: 2px solid var(--ink); padding-bottom: 12px; margin-bottom: 28px; }
+.hero { display: grid; gap: 16px; margin-bottom: 40px; }
+.lede { font-size: 1.15rem; color: var(--ink-soft); }
+.instructions { border: 1px solid var(--rule); padding: 16px 20px; display: grid; gap: 6px; }
+.instructions ul { margin: 0; padding-left: 1.2em; }
+
+section { display: grid; gap: 18px; padding-block: 32px; border-top: 1px solid var(--rule); }
+.q-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.marks { font-family: var(--mono); font-size: .85rem; color: var(--ink-soft); white-space: nowrap; }
+
+.table-wrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; min-width: 480px; font-size: .97rem; }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font-family: var(--mono); font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-soft); font-weight: 500; }
+td:first-child { font-family: var(--display); font-weight: 700; white-space: nowrap; }
+
+.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 18px; counter-reset: step; }
+.steps li { display: grid; grid-template-columns: 7.5rem 1fr; gap: 16px; }
+.steps .when { font-family: var(--mono); font-size: .82rem; color: var(--accent); padding-top: 3px; }
+.steps li > div { min-width: 0; display: grid; gap: 4px; }
+@media (max-width: 520px) { .steps li { grid-template-columns: 1fr; gap: 4px; } }
+
+.subjects { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0; border-top: 1px solid var(--rule); border-left: 1px solid var(--rule); }
+.subject { padding: 16px 18px; border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); display: grid; gap: 6px; align-content: start; min-width: 0; }
+.subject .by { font-family: var(--mono); font-size: .75rem; color: var(--ink-soft); }
+.subject p { font-size: .95rem; }
+
+.parents ul { margin: 0; padding-left: 1.2em; display: grid; gap: 8px; max-width: 65ch; }
+
+.cta { background: var(--accent); color: var(--accent-ink); border-radius: 4px; padding: 28px clamp(20px, 4vw, 36px); display: grid; gap: 14px; margin-top: 8px; }
+.cta h2 { color: var(--accent-ink); }
+.cta p { color: var(--accent-ink); opacity: .92; }
+.cta-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.btn { display: inline-block; background: var(--accent-ink); color: var(--accent); font-weight: 700; text-decoration: none; padding: 12px 20px; border-radius: 3px; border: 0; font: inherit; font-weight: 700; cursor: pointer; }
+.email { font-family: var(--mono); font-size: .9rem; user-select: all; color: var(--accent-ink); }
+.copy { background: transparent; color: var(--accent-ink); border: 1px solid currentColor; padding: 8px 12px; border-radius: 3px; font: inherit; font-size: .85rem; cursor: pointer; }
+.foot { margin-top: 28px; font-size: .9rem; color: var(--ink-soft); display: grid; gap: 4px; }
+@media (prefers-reduced-motion: no-preference) { .btn, .copy { transition: transform .15s ease; } .btn:hover, .copy:hover { transform: translateY(-1px); } }
+</style>
+
+<div class="sheet">
+  <div class="masthead">
+    <span class="eyebrow">Engaged Tuition · Free guide</span>
+    <span class="eyebrow">KS3 · GCSE · A-Level</span>
+  </div>
+
+  <header class="hero">
+    <h1>The Mock Exam Playbook</h1>
+    <p class="lede">Written by tutors who sat these exams two or three years ago and got top grades. What actually earns marks, a four-week plan, and how parents can help without adding pressure.</p>
+    <div class="instructions">
+      <span class="eyebrow">Instructions to candidates</span>
+      <ul>
+        <li>Read every section. Time allowed: about 8 minutes.</li>
+        <li>Mocks test <mark>exam technique</mark> as much as knowledge. That part is the quickest to improve.</li>
+        <li>Share this page with anyone in your year group.</li>
+      </ul>
+    </div>
+  </header>
+
+  <section aria-labelledby="s1">
+    <div class="q-head"><h2 id="s1">Read the command word first</h2><span class="marks">[most common mark loss]</span></div>
+    <p>Examiners mark against what the question asks for. Answering "describe" when it says "explain" can cap you at half marks, even if everything you wrote is correct.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Command word</th><th>What it means</th><th>What to write</th></tr></thead>
+        <tbody>
+          <tr><td>State / Give</td><td>A short fact</td><td>One word or line. Don't over-explain.</td></tr>
+          <tr><td>Describe</td><td>Say <em>what</em> happens</td><td>Trends, features, steps. Quote data if given.</td></tr>
+          <tr><td>Explain</td><td>Say <em>why</em> it happens</td><td>Use "because…", "this leads to…", "therefore…".</td></tr>
+          <tr><td>Evaluate</td><td>Weigh it up and judge</td><td>Both sides, "it depends on…", then a clear conclusion.</td></tr>
+          <tr><td>Compare</td><td>Similarities <em>and</em> differences</td><td>Link the two in each sentence ("whereas…").</td></tr>
+          <tr><td>Calculate</td><td>Work out a number</td><td>Equation, substitution, answer, units. Method marks count even if the answer is wrong.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section aria-labelledby="s2">
+    <div class="q-head"><h2 id="s2">The four-week countdown</h2><span class="marks">[plan]</span></div>
+    <ol class="steps">
+      <li><span class="when">4 weeks out</span><div><h3>List every topic and rate it</h3><p>Red, amber or green for each topic on the specification. Spend two-thirds of your time on red and amber.</p></div></li>
+      <li><span class="when">3 weeks out</span><div><h3>Switch from notes to questions</h3><p>Re-reading feels productive but doesn't stick. Try "blurting": write everything you remember about a topic in 5 minutes, then fill the gaps in a different colour.</p></div></li>
+      <li><span class="when">2 weeks out</span><div><h3>Do full past papers, timed</h3><p>Mark them with the official mark scheme from your exam board's website. Note the <em>type</em> of mark you lose: timing, command words, or content.</p></div></li>
+      <li><span class="when">Final week</span><div><h3>Fix the patterns, not everything</h3><p>Go back over the mistakes you keep repeating. Sleep counts as revision; late-night cramming before a paper usually costs more than it gains.</p></div></li>
+      <li><span class="when">In the exam</span><div><h3>Marks per minute</h3><p>Roughly a minute per mark. If a 2-mark question has taken 5 minutes, move on and come back to it.</p></div></li>
+    </ol>
+  </section>
+
+  <section aria-labelledby="s3">
+    <div class="q-head"><h2 id="s3">One tip per subject from our tutors</h2><span class="marks">[10 subjects]</span></div>
+    <div class="subjects">
+      <div class="subject"><h3>Biology</h3><span class="by">Harry · Biochemistry, Edinburgh</span><p>Never write "it". Name the thing: "the rate of photosynthesis increases", not "it increases".</p></div>
+      <div class="subject"><h3>Chemistry &amp; Physics</h3><span class="by">Mohammad · Medicine, Buckingham</span><p>Always show working in calculations. The method earns most of the marks.</p></div>
+      <div class="subject"><h3>Economics</h3><span class="by">Jonah S · Economics, Edinburgh</span><p>Every evaluation needs "it depends on…": elasticity, time period, size of the change.</p></div>
+      <div class="subject"><h3>Business</h3><span class="by">Eleanor · Business, Exeter</span><p>Point, explain, then apply it to the case study. Generic answers cap at half marks.</p></div>
+      <div class="subject"><h3>Latin</h3><span class="by">Jonah H · Classics, Edinburgh</span><p>Learn vocab with English cousins first: aqua → aquarium, porta → portal, mors → mortal.</p></div>
+      <div class="subject"><h3>English</h3><span class="by">Frankie · English &amp; Spanish, Exeter</span><p>Swap "this shows" for "this suggests" or "the writer evokes", then zoom in on a single word.</p></div>
+      <div class="subject"><h3>Spanish &amp; German</h3><span class="by">Frankie · English &amp; Spanish, Exeter</span><p>Use three tenses in every piece of writing (past, present and future). It unlocks the top band.</p></div>
+      <div class="subject"><h3>Geography</h3><span class="by">Scarlet · Geography, Edinburgh</span><p>Learn three specific facts or figures for every case study. Without them, 9-markers stay mid-band.</p></div>
+      <div class="subject"><h3>Psychology</h3><span class="by">Gemma · Biomedical Sciences, Edinburgh</span><p>For each key study, memorise one strength and one weakness. That's your evaluation ready-made.</p></div>
+      <div class="subject"><h3>Maths</h3><span class="by">Engaged Tuition</span><p>Check the units and the accuracy asked for (e.g. "to 2 decimal places"). Easy marks are lost there.</p></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="s4" class="parents">
+    <div class="q-head"><h2 id="s4">For parents: how to help</h2><span class="marks">[no nagging required]</span></div>
+    <ul>
+      <li><strong>Ask "what did you get wrong?"</strong> rather than "have you revised?". It gets a real conversation going.</li>
+      <li><strong>Help them test themselves.</strong> Reading out flashcards for ten minutes helps more than supervising an hour of note-copying.</li>
+      <li><strong>Treat mocks as a diagnosis.</strong> A disappointing mock grade tells you what to fix, with months still to go before the real exams.</li>
+      <li><strong>Protect sleep and breaks.</strong> A tired student retains far less.</li>
+      <li><strong>Get support early.</strong> A tutor is most useful straight after mocks, while there is still time to change the result.</li>
+    </ul>
+  </section>
+
+  <aside class="cta" aria-labelledby="cta-h">
+    <h2 id="cta-h">Want a tutor who sat these exams recently?</h2>
+    <p>Engaged Tuition's tutors are current students at Edinburgh, Exeter, Queen Mary and Buckingham who recently achieved top grades. Online sessions across the UK from £35/hour.</p>
+    <p><em>"Grades improved from 5/6s to 7/8s."</em> · <em>"We actually look forward to our lessons every week instead of dreading them!"</em></p>
+    <div class="cta-row">
+      <a class="btn" href="https://forms.gle/xrj77tJBsSCDFwHMA" target="_blank" rel="noopener">Send an enquiry</a>
+      <a class="btn" href="https://engagedtuition.co.uk/" target="_blank" rel="noopener">Visit engagedtuition.co.uk</a>
+    </div>
+    <div class="cta-row">
+      <span class="email" id="email">engagedtuitiontoday@gmail.com</span>
+      <button class="copy" id="copy-btn" type="button">Copy email</button>
+    </div>
+  </aside>
+
+  <div class="foot">
+    <p>Always check the specification and past papers from your own exam board (AQA, Edexcel, OCR, WJEC/Eduqas).</p>
+    <p>© Engaged Tuition · Building confidence. Delivering results.</p>
+  </div>
+</div>
+
+<script>
+document.getElementById('copy-btn').addEventListener('click', function () {
+  var btn = this, text = document.getElementById('email').textContent;
+  function selectFallback() {
+    var r = document.createRange(); r.selectNodeContents(document.getElementById('email'));
+    var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+    btn.textContent = 'Selected, press Ctrl/⌘+C';
+  }
+  try {
+    navigator.clipboard.writeText(text).then(function () { btn.textContent = 'Copied'; }, selectFallback);
+  } catch (e) { selectFallback(); }
+});
+</script>
+
+</body></html>

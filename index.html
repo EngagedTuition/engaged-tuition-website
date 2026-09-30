@@ -1,20 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Engaged Tuition | Online GCSE, A-Level & KS3 Tutors</title>
+<title>Online GCSE &amp; A-Level Tutors, UK-wide | Engaged Tuition</title>
 <link rel="canonical" href="https://engagedtuition.co.uk/">
 <!-- Search Engine Optimisation (SEO) Tags -->
-<meta name="description" content="Expert online tuition across the UK with specialised in-person support in London. Professional KS3, GCSE, and A-Level tutoring to boost grades and confidence.">
-<meta name="keywords" content="online tuition UK, GCSE tutoring London, A-Level tutor online, KS3 tuition, online maths tutor, Latin tutoring, psychology tutoring, exam prep UK, Engaged Tuition">
+<meta name="description" content="Online GCSE &amp; A-Level tutors, UK-wide. Expert KS3, GCSE and A-Level tutoring from students who recently achieved top grades.">
+<meta name="keywords" content="online tuition UK, online GCSE tutor, A-Level tutor online, KS3 tuition, online maths tutor, Latin tutoring, psychology tutoring, exam prep UK, Engaged Tuition">
 <meta name="robots" content="index, follow">
 
 <!-- Open Graph Tags (For Facebook, Instagram & WhatsApp sharing) -->
-<meta property="og:title" content="Engaged Tuition | Expert Online & London Tutoring">
-<meta property="og:description" content="Professional online and in-person tutoring tailored for KS3, GCSE, and A-Level students across the UK and London. Book a session today.">
-<meta property="og:url" content="https://engagedtuition.co.uk">
+<meta property="og:title" content="Engaged Tuition | Online GCSE &amp; A-Level Tutors, UK-wide">
+<meta property="og:description" content="Online KS3, GCSE and A-Level tutoring for students anywhere in the UK. Book a session today.">
+<meta property="og:url" content="https://engagedtuition.co.uk/">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="Engaged Tuition">
+<meta property="og:locale" content="en_GB">
+<meta property="og:image" content="https://engagedtuition.co.uk/assets/images/Engaged_Tuition_Logo.png">
 
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <!-- Meta Pixel Code -->
@@ -121,6 +124,7 @@ src="https://www.facebook.com/tr?id=2065606021016607&ev=PageView&noscript=1"
   .hero-logo-display img { position: relative; z-index: 1; display: block; width: 340px; max-width: 90vw; height: auto; border-radius: 0; }
   .hero-logo-word { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.8rem, 6vw, 4.2rem); font-weight: 400; color: var(--charcoal); letter-spacing: -0.02em; line-height: 1; }
   .hero-logo-sub { font-family: 'Jost', sans-serif; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.45em; text-transform: uppercase; color: var(--charcoal-mid); margin-top: 0.4rem; }
+  .hero-kicker { font-family: 'Jost', sans-serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.9rem; }
   .hero-tagline { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.6vw, 2.8rem); font-weight: 400; font-style: italic; color: var(--charcoal-mid); margin-bottom: 1.15rem; }
   .hero-sub { font-size: clamp(1.05rem, 1.35vw, 1.18rem); color: var(--muted); max-width: 650px; margin: 0 auto 1.5rem; font-weight: 300; line-height: 1.85; }
   .hero-proof { position: absolute; inset: 0; pointer-events: none; margin: 0; min-height: 280px; }
@@ -273,10 +277,18 @@ src="https://www.facebook.com/tr?id=2065606021016607&ev=PageView&noscript=1"
   .subjects-top { margin-bottom: 3rem; }
   .subjects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(155px, 1fr)); gap: 1rem; }
   .subject-pill { background: var(--sand-light); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.6rem 1rem; text-align: center; transition: all 0.2s; }
+  a.subject-pill { display: block; text-decoration: none; color: inherit; }
   .subject-pill:hover { background: var(--sand); border-color: var(--sand-deeper); transform: translateY(-2px); }
   .subject-icon { color: var(--accent); font-size: 1.9rem; display: block; margin-bottom: 0.55rem; }
   .subject-icon .icon { width: 1em; height: 1em; }
   .subject-name { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 600; color: var(--charcoal); display: block; }
+  .subjects-grid > .subject-pill:not(.retired-tutor) { display: flex; flex-direction: column; justify-content: center; align-items: center; }
+  .subject-pill-main { display: block; text-decoration: none; color: inherit; }
+  .subject-sublinks { display: block; margin: 0.45rem -0.75rem 0; font-size: 0.72rem; color: var(--muted); letter-spacing: 0; }
+  .subject-sublinks a { color: var(--accent); font-weight: 500; text-decoration: none; white-space: nowrap; }
+  .subject-sublinks a:hover { color: var(--charcoal); text-decoration: underline; }
+  .subject-guides { margin-top: 1.75rem; text-align: center; font-size: 0.88rem; color: var(--muted); line-height: 2; }
+  .subject-guides a { color: var(--accent); white-space: nowrap; }
   .subject-levels { font-size: 0.75rem; color: var(--muted); margin-top: 0.3rem; display: block; letter-spacing: 0.04em; }
 
   /* TUTORS */
@@ -1242,6 +1254,7 @@ body.fade-out {
   /* ANIMATIONS */
   @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
   .hero-logo-display { animation: fadeUp 0.6s ease both; }
+  .hero-kicker       { animation: fadeUp 0.6s 0.06s ease both; }
   .hero-tagline      { animation: fadeUp 0.6s 0.12s ease both; }
   .hero-sub          { animation: fadeUp 0.6s 0.22s ease both; }
   .hero-btns         { animation: fadeUp 0.6s 0.32s ease both; }
@@ -1249,13 +1262,13 @@ body.fade-out {
 
 
 
-<link rel="icon" type="image/png" sizes="192x192" href="/favicon_folder/android-chrome-192x192.png">
-<link rel="icon" type="image/png" sizes="48x48" href="/favicon_folder/favicon-48x48.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon_folder/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon_folder/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/icons/android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/icons/favicon-48x48.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
 <link rel="shortcut icon" href="/favicon.ico">
-<link rel="apple-touch-icon" sizes="180x180" href="/favicon_folder/apple-touch-icon.png">
-<link rel="manifest" href="/favicon_folder/site.webmanifest">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
+<link rel="manifest" href="/assets/icons/site.webmanifest">
 <meta name="theme-color" content="#FDFAF7">
 
 </head>
@@ -1352,12 +1365,13 @@ body.fade-out {
 
 <!-- HERO -->
 <section class="hero">
-  <div class="dot-field" data-focus-target=".hero-logo-display" data-clear-target=".hero-logo-display, .hero-tagline, .hero-sub, .hero-proof-note, .hero-btns a, .hero-proof-person" data-clear-padding="9" aria-hidden="true"></div>
+  <div class="dot-field" data-focus-target=".hero-logo-display" data-clear-target=".hero-logo-display, .hero-kicker, .hero-tagline, .hero-sub, .hero-proof-note, .hero-btns a, .hero-proof-person" data-clear-padding="9" aria-hidden="true"></div>
   <div class="hero-logo-display">
-    <img src="Engaged_Tuition_Logo.png" alt="Engaged Tuition logo">
+    <img src="assets/images/Engaged_Tuition_Logo.png" alt="Engaged Tuition logo">
   </div>
   <div class="hero-copy">
-  <h1 class="hero-tagline">Building confidence. Delivering results.</h1>    <p class="hero-sub">Expert online tutoring from current university students who recently achieved top grades in the same exams, offering engaging and approachable support from KS3 through to A-Level.</p>
+  <h1 class="hero-kicker">Online GCSE &amp; A-Level Tutors, UK-wide</h1>
+    <p class="hero-tagline">Building confidence. Delivering results.</p>    <p class="hero-sub">Expert online tutoring from current university students who recently achieved top grades in the same exams, offering engaging and approachable support from KS3 through to A-Level.</p>
     <div class="hero-proof-note">Our current client base has grown organically through word of mouth and reputation.</div>
   </div>
   <div class="hero-proof" aria-hidden="true">
@@ -1475,7 +1489,7 @@ body.fade-out {
 
       <div class="about-left">
         <span class="section-eyebrow">Who We Are</span>
-        <h2 class="section-title">Why I started<br>Engaged Tuition<span class="sr-only"> Online Tutoring</span></h2>        <p class="about-body">Hi! I'm Harry, the founder of Engaged Tuition. What started as a few sessions tutoring students gradually grew into something much bigger. Over time, more and more students (and parents) encouraged me to expand because they valued not only the academic progress being made, but also the friendly, supportive environment that each lesson provided. That balance between strong academic teaching and genuine encouragement is what Engaged Tuition is built around.</p>
+        <h2 class="section-title">Why I started<br>Engaged Tuition</h2>        <p class="about-body">Hi! I'm Harry, the founder of Engaged Tuition. What started as a few sessions tutoring students gradually grew into something much bigger. Over time, more and more students (and parents) encouraged me to expand because they valued not only the academic progress being made, but also the friendly, supportive environment that each lesson provided. That balance between strong academic teaching and genuine encouragement is what Engaged Tuition is built around.</p>
         
         
         <p class="about-body retired-tutor">Alongside tutoring, I also manage the day-to-day running of Engaged Tuition: coordinating tutors, organising sessions, and making sure everything runs smoothly for families. Reliability, communication and organisation are incredibly important to us, because consistency is what allows students to feel supported and make long-term progress.</p>
@@ -1534,7 +1548,7 @@ body.fade-out {
   <div class="container">
     <div class="why-intro">
       <span class="section-eyebrow">Why Choose Us</span>
-      <h2 class="section-title">More than tutoring: <br>a genuine confidence boost<span class="sr-only"> — Expert KS3, GCSE &amp; A-Level Tutors</span></h2>    </div>
+      <h2 class="section-title">More than tutoring: <br>a genuine confidence boost</h2>    </div>
     <div class="why-grid">
       <div class="why-card">
         <div class="why-icon"><svg class="icon" aria-hidden="true"><use href="#icon-graduation"></use></svg></div>
@@ -1576,60 +1590,64 @@ body.fade-out {
   <div class="container">
     <div class="subjects-top">
       <span class="section-eyebrow">What We Teach</span>
-      <h2 class="section-title">Subjects we cover<span class="sr-only"> for KS3, GCSE &amp; A-Level Online Tutoring</span></h2>      <p class="section-body">Tutoring available from KS3 all the way through to A-Level across a wide range of subjects.</p>
+      <h2 class="section-title">Subjects we cover</h2>      <p class="section-body">Tutoring available from KS3 all the way through to A-Level across a wide range of subjects.</p>
     </div>
     <div class="subjects-grid">
       <div class="subject-pill">
-        <span class="subject-icon"><svg class="icon" aria-hidden="true"><use href="#icon-atom"></use></svg></span>
-        <span class="subject-name">Sciences</span>
-        <span class="subject-levels">KS3 · GCSE · A-Level</span>
+        <a class="subject-pill-main" href="/subjects/science-tutor.html">
+          <span class="subject-icon"><svg class="icon" aria-hidden="true"><use href="#icon-atom"></use></svg></span>
+          <span class="subject-name">Sciences</span>
+          <span class="subject-levels">KS3 · GCSE · A-Level</span>
+        </a>
+        <span class="subject-sublinks"><a href="/subjects/biology-tutor.html">Biology</a> · <a href="/subjects/chemistry-tutor.html">Chemistry</a> · <a href="/subjects/gcse-physics-tutor.html">Physics</a></span>
       </div>
-      <div class="subject-pill">
+      <a class="subject-pill" href="/subjects/gcse-maths-tutor.html">
         <span class="subject-icon"><svg class="icon" aria-hidden="true"><use href="#icon-calculator"></use></svg></span>
         <span class="subject-name">Maths</span>
         <span class="subject-levels">KS3 · GCSE</span>
-      </div>
-      <div class="subject-pill">
+      </a>
+      <a class="subject-pill" href="/subjects/gcse-english-tutor.html">
         <span class="subject-icon"><svg class="icon" aria-hidden="true"><use href="#icon-book"></use></svg></span>
         <span class="subject-name">English</span>
         <span class="subject-levels">KS3 · GCSE</span>
-      </div>
-      <div class="subject-pill">
+      </a>
+      <a class="subject-pill" href="/subjects/gcse-spanish-tutor.html">
         <span class="subject-icon"><svg class="icon" aria-hidden="true"><use href="#icon-language"></use></svg></span>
         <span class="subject-name">Spanish</span>
         <span class="subject-levels">KS3 · GCSE</span>
-      </div>
-      <div class="subject-pill">
+      </a>
+      <a class="subject-pill" href="/subjects/gcse-german-tutor.html">
         <span class="subject-icon"><svg class="icon" aria-hidden="true"><use href="#icon-language"></use></svg></span>
         <span class="subject-name">German</span>
         <span class="subject-levels">KS3 · GCSE</span>
-      </div>
-      <div class="subject-pill">
+      </a>
+      <a class="subject-pill" href="/subjects/gcse-latin-tutor.html">
         <span class="subject-icon"><svg class="icon" aria-hidden="true"><use href="#icon-language"></use></svg></span>
         <span class="subject-name">Latin</span>
         <span class="subject-levels">KS3 · GCSE · A-Level</span>
-      </div>
-      <div class="subject-pill">
+      </a>
+      <a class="subject-pill" href="/subjects/geography-tutor.html">
         <span class="subject-icon"><svg class="icon" aria-hidden="true"><use href="#icon-globe"></use></svg></span>
         <span class="subject-name">Geography</span>
         <span class="subject-levels">KS3 · GCSE · A-Level</span>
-      </div>
-      <div class="subject-pill">
+      </a>
+      <a class="subject-pill" href="/subjects/business-tutor.html">
         <span class="subject-icon"><svg class="icon" aria-hidden="true"><use href="#icon-chart"></use></svg></span>
         <span class="subject-name">Business</span>
         <span class="subject-levels">KS3 · GCSE · A-Level</span>
-      </div>
+      </a>
       <div class="subject-pill retired-tutor">
         <span class="subject-icon"><svg class="icon" aria-hidden="true"><use href="#icon-chart"></use></svg></span>
         <span class="subject-name">Economics</span>
         <span class="subject-levels">A-Level</span>
       </div>
-      <div class="subject-pill">
+      <a class="subject-pill" href="/subjects/psychology-tutor.html">
         <span class="subject-icon"><svg class="icon" aria-hidden="true"><use href="#icon-brain"></use></svg></span>
         <span class="subject-name">Psychology</span>
         <span class="subject-levels">KS3 · GCSE · A-Level</span>
-      </div>
+      </a>
     </div>
+    <p class="subject-guides">Subject guides: <a href="/subjects/science-tutor.html">Sciences</a> · <a href="/subjects/biology-tutor.html">Biology</a> · <a href="/subjects/chemistry-tutor.html">Chemistry</a> · <a href="/subjects/gcse-physics-tutor.html">Physics</a> · <a href="/subjects/gcse-maths-tutor.html">Maths</a> · <a href="/subjects/gcse-english-tutor.html">English</a> · <a href="/subjects/gcse-spanish-tutor.html">Spanish</a> · <a href="/subjects/gcse-german-tutor.html">German</a> · <a href="/subjects/gcse-latin-tutor.html">Latin</a> · <a href="/subjects/geography-tutor.html">Geography</a> · <a href="/subjects/business-tutor.html">Business</a> · <a href="/subjects/psychology-tutor.html">Psychology</a></p>
   </div>
 </section>
 
@@ -1658,7 +1676,7 @@ body.fade-out {
   <div class="container">
     <div class="tutors-intro">
       <span class="section-eyebrow">Meet the Team</span>
-      <h2 class="section-title">Your tutors<span class="sr-only"> — Online &amp; London GCSE Tutors</span></h2>      <p class="section-body">Current university students with top grades and a genuine passion for helping others reach their potential.</p>
+      <h2 class="section-title">Your tutors</h2>      <p class="section-body">Current university students with top grades and a genuine passion for helping others reach their potential.</p>
     </div>
 
     <div class="tutors-carousel-panel">
@@ -1668,7 +1686,7 @@ body.fade-out {
       <!-- ══ TUTOR 1: HARRY ══ -->
       <div class="tutor-card retired-tutor">
     <div class="tutor-photo-wrap">
-    <img src="Harry_website_photo.jpeg" alt="Harry" class="harry-photo">
+    <img loading="lazy" decoding="async" src="assets/images/tutors/Harry_website_photo.jpeg" alt="Harry" class="harry-photo">
   </div>
 
   <div class="tutor-body">
@@ -1697,7 +1715,7 @@ body.fade-out {
       <!-- ══ TUTOR 1: ELEANOR ══ -->
       <div class="tutor-card">
   <div class="tutor-photo-wrap">
-    <img src="Eleanor_website_photo.jpeg" alt="Eleanor H">
+    <img loading="lazy" decoding="async" src="assets/images/tutors/Eleanor_website_photo.jpeg" alt="Eleanor H">
   </div>
 
   <div class="tutor-body">
@@ -1726,7 +1744,7 @@ body.fade-out {
       <!-- ══ TUTOR 2: MOHAMMAD ══ -->
       <div class="tutor-card">
   <div class="tutor-photo-wrap">
-    <img src="Mohammad_website_photo.jpeg" alt="Mohammad A, Physics and Maths tutor">
+    <img loading="lazy" decoding="async" src="assets/images/tutors/Mohammad_website_photo.jpeg" alt="Mohammad A, Physics and Maths tutor">
   </div>
 
   <div class="tutor-body">
@@ -1755,7 +1773,7 @@ body.fade-out {
 <!-- ══ TUTOR 4: JONAH ══ -->
       <div class="tutor-card retired-tutor">
   <div class="tutor-photo-wrap">
-    <img src="Jonah_website_photo.jpg" alt="Jonah S, Economics tutor">
+    <img loading="lazy" decoding="async" src="assets/images/tutors/Jonah_website_photo.jpg" alt="Jonah S, Economics tutor">
   </div>
 
   <div class="tutor-body">
@@ -1779,7 +1797,7 @@ body.fade-out {
       <!-- ══ TUTOR 5: GEMMA ══ -->
       <div class="tutor-card">
   <div class="tutor-photo-wrap">
-    <img src="Gemma_website_photo.png" alt="Gemma W">
+    <img loading="lazy" decoding="async" src="assets/images/tutors/Gemma_website_photo.png" alt="Gemma W">
   </div>
 
   <div class="tutor-body">
@@ -1808,7 +1826,7 @@ body.fade-out {
       <!-- ══ TUTOR 3: FRANKIE ══ -->
       <div class="tutor-card">
   <div class="tutor-photo-wrap">
-    <img src="Frankie_website_photo.jpeg" alt="Frankie B">
+    <img loading="lazy" decoding="async" src="assets/images/tutors/Frankie_website_photo.jpeg" alt="Frankie B">
   </div>
 
   <div class="tutor-body">
@@ -1837,7 +1855,7 @@ body.fade-out {
       <!-- ══ TUTOR 4: SCARLET ══ -->
       <div class="tutor-card">
   <div class="tutor-photo-wrap">
-    <img src="Scarlet_website_photo.jpeg" alt="Scarlet B" class="scarlet-photo">
+    <img loading="lazy" decoding="async" src="assets/images/tutors/Scarlet_website_photo.jpeg" alt="Scarlet B" class="scarlet-photo">
   </div>
 
   <div class="tutor-body">
@@ -1866,7 +1884,7 @@ body.fade-out {
       <!-- ══ TUTOR: JONAH H ══ -->
       <div class="tutor-card">
   <div class="tutor-photo-wrap jonah-h-photo-wrap">
-    <img src="Jonah_H_website_photo_cropped.jpeg" alt="Jonah H, Latin and Psychology tutor" class="jonah-h-photo">
+    <img loading="lazy" decoding="async" src="assets/images/tutors/Jonah_H_website_photo_cropped.jpeg" alt="Jonah H, Latin and Psychology tutor" class="jonah-h-photo">
   </div>
 
   <div class="tutor-body">
@@ -1909,7 +1927,7 @@ body.fade-out {
       <div class="modal-left">
 
         <div class="modal-photo">
-          <img src="Harry_website_photo.jpeg" alt="Harry">
+          <img loading="lazy" decoding="async" src="assets/images/tutors/Harry_website_photo.jpeg" alt="Harry">
         </div>
 
       </div>
@@ -2061,7 +2079,7 @@ body.fade-out {
       <div class="modal-left">
 
         <div class="modal-photo">
-          <img src="Mohammad_website_photo.jpeg" alt="Mohammad A">
+          <img loading="lazy" decoding="async" src="assets/images/tutors/Mohammad_website_photo.jpeg" alt="Mohammad A">
         </div>
 
       </div>
@@ -2150,7 +2168,7 @@ body.fade-out {
       <div class="modal-left">
 
         <div class="modal-photo">
-          <img src="Eleanor_website_photo.jpeg" alt="Eleanor H">
+          <img loading="lazy" decoding="async" src="assets/images/tutors/Eleanor_website_photo.jpeg" alt="Eleanor H">
         </div>
 
       </div>
@@ -2269,7 +2287,7 @@ body.fade-out {
       <div class="modal-left">
 
         <div class="modal-photo">
-          <img src="Jonah_website_photo.jpg" alt="Jonah S">
+          <img loading="lazy" decoding="async" src="assets/images/tutors/Jonah_website_photo.jpg" alt="Jonah S">
         </div>
 
       </div>
@@ -2320,7 +2338,7 @@ body.fade-out {
 
       <div class="modal-left">
         <div class="modal-photo">
-          <img src="Jonah_H_website_photo_cropped.jpeg" alt="Jonah H" class="jonah-h-photo">
+          <img loading="lazy" decoding="async" src="assets/images/tutors/Jonah_H_website_photo_cropped.jpeg" alt="Jonah H" class="jonah-h-photo">
         </div>
       </div>
 
@@ -2362,7 +2380,7 @@ body.fade-out {
       <div class="modal-left">
 
         <div class="modal-photo">
-          <img src="Frankie_website_photo.jpeg" alt="Frankie B">
+          <img loading="lazy" decoding="async" src="assets/images/tutors/Frankie_website_photo.jpeg" alt="Frankie B">
         </div>
 
       </div>
@@ -2450,7 +2468,7 @@ body.fade-out {
       <div class="modal-left">
 
         <div class="modal-photo">
-          <img src="Scarlet_website_photo.jpeg" alt="Scarlet B">
+          <img loading="lazy" decoding="async" src="assets/images/tutors/Scarlet_website_photo.jpeg" alt="Scarlet B">
         </div>
 
       </div>
@@ -2521,7 +2539,7 @@ body.fade-out {
       <div class="modal-left">
 
         <div class="modal-photo">
-          <img src="Gemma_website_photo.png" alt="Gemma W">
+          <img loading="lazy" decoding="async" src="assets/images/tutors/Gemma_website_photo.png" alt="Gemma W">
         </div>
 
       </div>
@@ -2601,7 +2619,7 @@ body.fade-out {
     <div class="pricing-top">
       <span class="section-eyebrow">Transparent Pricing</span>
       <h2 class="section-title">
-        Simple, fair pricing<span class="sr-only"> for KS3, GCSE &amp; A-Level Tutoring</span>
+        Simple, fair pricing
       </h2>
       <p class="section-body">
       No hidden fees. Save £50 with our flexible 10-session packages.
@@ -2721,7 +2739,7 @@ body.fade-out {
 
         <span class="section-eyebrow">Get in Touch</span>
 
-        <h2 class="section-title">Ready to get started?<span class="sr-only"> — Book Online Tutoring</span></h2>
+        <h2 class="section-title">Ready to get started?</h2>
         <p class="section-body">
           Reach out and we'll match your child with the perfect tutor. No question is too small - we'd love to hear from you.
         </p>
