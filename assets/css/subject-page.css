@@ -14,7 +14,8 @@
   --border:      rgba(140,110,80,0.2);
   --radius:      14px;
 }
-html { background: var(--white); overflow-x: hidden; }
+html { background: var(--white); overflow-x: hidden; scroll-behavior: smooth; scroll-padding-top: 84px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 body { font-family: 'Jost', sans-serif; color: var(--charcoal); background: var(--white); font-size: 16px; line-height: 1.7; overflow-x: hidden; }
 img { max-width: 100%; }
 

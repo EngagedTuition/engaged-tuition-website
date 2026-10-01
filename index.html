@@ -83,7 +83,7 @@ src="https://www.facebook.com/tr?id=2065606021016607&ev=PageView&noscript=1"
     --radius:      14px;
     --radius-sm:   8px;
   }
-  html { scroll-behavior: smooth; background: var(--white) radial-gradient(circle, rgba(0,0,0,0.3) 2px, transparent 2px); background-size: 60px 60px; overflow-x: hidden; }
+  html { scroll-behavior: smooth; scroll-padding-top: 68px; background: var(--white) radial-gradient(circle, rgba(0,0,0,0.3) 2px, transparent 2px); background-size: 60px 60px; overflow-x: hidden; }
   body { font-family: 'Jost', sans-serif; color: var(--charcoal); font-size: 16px; line-height: 1.7; overflow-x: hidden; }
 
   /* NAV */
@@ -430,6 +430,42 @@ src="https://www.facebook.com/tr?id=2065606021016607&ev=PageView&noscript=1"
 .tutor-card:hover {
   transform: translateY(-3px);
   box-shadow: 0 12px 40px rgba(140,110,80,0.12);
+}
+
+/* shine: satin panel with a slow light sweep */
+.tutors-carousel-panel {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #E6D1BA 0%, #F4E8DA 24%, #E2CBB1 48%, #F0E2D0 72%, #DCC3A6 100%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.7), inset 0 -1px 0 rgba(140,110,80,0.15), 0 14px 36px rgba(140,110,80,0.14);
+}
+
+.tutors-carousel-panel::after {
+  content: "";
+  position: absolute;
+  top: -20%;
+  left: 0;
+  width: 35%;
+  height: 140%;
+  background: linear-gradient(105deg, transparent 0%, rgba(255,255,255,0.55) 50%, transparent 100%);
+  transform: translateX(-150%) skewX(-12deg);
+  pointer-events: none;
+  z-index: 0;
+  animation: panelSheen 7s ease-in-out infinite;
+}
+
+/* keep the cards above the sweep so only the box shines */
+.tutors-carousel-panel > .tutors-wrapper {
+  z-index: 1;
+}
+
+@keyframes panelSheen {
+  0%, 55% { transform: translateX(-150%) skewX(-12deg); }
+  100%    { transform: translateX(400%) skewX(-12deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tutors-carousel-panel::after { animation: none; display: none; }
 }
 
 /* photos */
@@ -1323,6 +1359,7 @@ body.fade-out {
 <link rel="manifest" href="/assets/icons/site.webmanifest">
 <meta name="theme-color" content="#FDFAF7">
 
+<script src="/assets/js/reveal.js" defer></script>
 </head>
 <body>
 <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden" focusable="false">
