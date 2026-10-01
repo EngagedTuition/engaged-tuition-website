@@ -18,6 +18,35 @@
 <meta property="og:site_name" content="Engaged Tuition">
 <meta property="og:locale" content="en_GB">
 <meta property="og:image" content="https://engagedtuition.co.uk/assets/images/Engaged_Tuition_Logo.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "EducationalOrganization",
+      "@id": "https://engagedtuition.co.uk/#organization",
+      "name": "Engaged Tuition",
+      "url": "https://engagedtuition.co.uk/",
+      "logo": "https://engagedtuition.co.uk/assets/images/Engaged_Tuition_Logo.png",
+      "email": "engagedtuitiontoday@gmail.com",
+      "areaServed": {
+        "@type": "Country",
+        "name": "United Kingdom"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://engagedtuition.co.uk/#website",
+      "url": "https://engagedtuition.co.uk/",
+      "name": "Engaged Tuition",
+      "publisher": {
+        "@id": "https://engagedtuition.co.uk/#organization"
+      },
+      "inLanguage": "en-GB"
+    }
+  ]
+}
+</script>
 
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <!-- Meta Pixel Code -->
@@ -271,6 +300,18 @@ src="https://www.facebook.com/tr?id=2065606021016607&ev=PageView&noscript=1"
   .why-icon { width: 44px; height: 44px; background: var(--sand); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; color: var(--accent); font-size: 1.35rem; margin-bottom: 1.25rem; }
   .why-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; color: var(--charcoal); margin-bottom: 0.6rem; }
   .why-card p { font-size: 0.92rem; color: var(--muted); line-height: 1.75; }
+  /* Playbook preview in the right-hand margin of Why Us: only on screens wide enough to have a margin */
+  .why-side { display: none; }
+  @media (min-width: 1440px) {
+    #why { position: relative; }
+    .why-side { display: flex; flex-direction: column; align-items: center; gap: 1.1rem; position: absolute; top: 50%; right: calc((100vw - 950px) / 4); transform: translate(50%, -50%); width: min(280px, calc((100vw - 950px) / 2 - 64px)); text-align: center; z-index: 1; }
+    .why-side-preview { display: block; width: 100%; text-decoration: none; color: var(--charcoal); }
+    .why-side-preview img { display: block; width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--border); box-shadow: 0 18px 40px rgba(28,28,26,0.12); transform: rotate(2deg); transition: transform 0.25s, box-shadow 0.25s; }
+    .why-side-preview:hover img { transform: rotate(0deg) translateY(-3px); box-shadow: 0 22px 48px rgba(28,28,26,0.16); }
+    .why-side-label { display: block; margin-top: 1.1rem; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); }
+    .why-side-title { display: block; font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 600; line-height: 1.2; }
+    .why-side .btn-resources { font-size: 0.85rem; padding: 0.8rem 1.5rem; }
+  }
 
   /* SUBJECTS */
   #subjects { background: var(--white); }
@@ -289,6 +330,17 @@ src="https://www.facebook.com/tr?id=2065606021016607&ev=PageView&noscript=1"
   .subject-sublinks a:hover { color: var(--charcoal); text-decoration: underline; }
   .subject-guides { margin-top: 1.75rem; text-align: center; font-size: 0.88rem; color: var(--muted); line-height: 2; }
   .subject-guides a { color: var(--accent); white-space: nowrap; }
+  .playbook-banner { margin: 2.5rem auto 0; max-width: 820px; display: flex; align-items: center; justify-content: space-between; gap: 1.25rem 2rem; background: radial-gradient(circle at 90% 10%, rgba(185,131,79,0.35), transparent 45%), var(--charcoal); border: 1px solid var(--charcoal); border-radius: 14px; padding: 1.6rem 2rem; text-decoration: none; color: var(--white); box-shadow: 0 14px 36px rgba(28,28,26,0.14); transition: border-color 0.2s, transform 0.15s; }
+  .playbook-banner:hover { border-color: var(--sand-deeper); transform: translateY(-1px); }
+  .playbook-banner-label { display: block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--sand-deeper); margin-bottom: 0.3rem; }
+  .playbook-banner-title { display: block; font-family: 'Cormorant Garamond', serif; font-size: 1.55rem; font-weight: 600; line-height: 1.2; color: var(--white); }
+  .playbook-banner-text { display: block; font-size: 0.9rem; color: rgba(253,250,247,0.72); font-weight: 300; margin-top: 0.25rem; }
+  .playbook-banner-cta { flex-shrink: 0; background: var(--sand); color: var(--charcoal); padding: 0.75rem 1.6rem; border-radius: 50px; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.06em; transition: background 0.2s; }
+  .playbook-banner:hover .playbook-banner-cta { background: var(--white); }
+  @media (max-width: 768px) {
+    .playbook-banner { flex-direction: column; align-items: stretch; text-align: left; padding: 1.4rem 1.3rem; }
+    .playbook-banner-cta { text-align: center; }
+  }
   .subject-levels { font-size: 0.75rem; color: var(--muted); margin-top: 0.3rem; display: block; letter-spacing: 0.04em; }
 
   /* TUTORS */
@@ -1421,7 +1473,7 @@ body.fade-out {
           <use href="#person-short-hair"></use>
         </svg>
       </div>
-      <span class="hero-proof-bubble hero-proof-bubble--small">“Harry is personable, highly organised and skillful at teaching”</span>
+      <span class="hero-proof-bubble hero-proof-bubble--small">“Harry is personable and highly organised”</span>
     </div>
   </div>
   <div class="hero-btns">
@@ -1582,6 +1634,14 @@ body.fade-out {
       </div>
     </div>
   </div>
+  <aside class="why-side" aria-label="Free resources">
+    <a class="why-side-preview" href="/resources/mock-exam-playbook">
+      <img loading="lazy" decoding="async" src="assets/images/marketing/mock-exam-playbook-preview.jpg" alt="Preview of the Mock Exam Playbook" width="640" height="833">
+      <span class="why-side-label">Free guide</span>
+      <span class="why-side-title">The Mock Exam Playbook</span>
+    </a>
+    <a href="/resources" class="btn-resources" onclick="fadeToPage(event, this.href)">Browse More Resources</a>
+  </aside>
 </section>
 
 
@@ -1648,6 +1708,14 @@ body.fade-out {
       </a>
     </div>
     <p class="subject-guides">Subject guides: <a href="/subjects/science-tutor">Sciences</a> · <a href="/subjects/biology-tutor">Biology</a> · <a href="/subjects/chemistry-tutor">Chemistry</a> · <a href="/subjects/gcse-physics-tutor">Physics</a> · <a href="/subjects/gcse-maths-tutor">Maths</a> · <a href="/subjects/gcse-english-tutor">English</a> · <a href="/subjects/gcse-spanish-tutor">Spanish</a> · <a href="/subjects/gcse-german-tutor">German</a> · <a href="/subjects/gcse-latin-tutor">Latin</a> · <a href="/subjects/geography-tutor">Geography</a> · <a href="/subjects/business-tutor">Business</a> · <a href="/subjects/psychology-tutor">Psychology</a></p>
+    <a class="playbook-banner" href="/resources/mock-exam-playbook">
+      <span>
+        <span class="playbook-banner-label">Free guide · Mocks coming up?</span>
+        <span class="playbook-banner-title">The Mock Exam Playbook</span>
+        <span class="playbook-banner-text">Command words, a four-week revision plan, a tip per subject from our tutors, and how parents can help.</span>
+      </span>
+      <span class="playbook-banner-cta">Read it free &rarr;</span>
+    </a>
   </div>
 </section>
 
@@ -1752,7 +1820,7 @@ body.fade-out {
     <div class="tutor-name">Mohammad A</div>
 
     <span class="tutor-tag">
-      Physics · Maths
+      Biology · Chemistry · Physics · Maths
     </span>
 
     <p class="tutor-bio">
@@ -2355,7 +2423,6 @@ body.fade-out {
 
           <p>I hope to build students’ confidence in Latin, help them see clear progress and, ideally, encourage them to enjoy the subject as much as I do.</p>
 
-          <p>Jonah teaches Latin and Psychology from KS3 to A-Level.</p>
         </div>
       </div>
 

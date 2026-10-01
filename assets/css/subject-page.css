@@ -98,3 +98,16 @@ footer a:hover { color: var(--white); }
   .card { padding: 1.5rem 1.3rem; }
   .btn-primary { width: 100%; text-align: center; }
 }
+
+/* PLAYBOOK STRIP (links each subject page to the free Mock Exam Playbook) */
+.playbook-strip { padding: 0 3rem 4rem; }
+.playbook-strip a { display: flex; align-items: center; gap: 1rem 1.5rem; background: var(--charcoal); color: var(--white); border-radius: var(--radius); padding: 1.3rem 1.8rem; text-decoration: none; transition: transform 0.2s; }
+.playbook-strip a:hover { transform: translateY(-2px); }
+.playbook-strip-tag { flex-shrink: 0; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--sand-deeper); }
+.playbook-strip-text { flex: 1; font-weight: 300; color: rgba(253,250,247,0.85); }
+.playbook-strip-text strong { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; color: var(--white); }
+.playbook-strip-go { flex-shrink: 0; background: var(--sand); color: var(--charcoal); padding: 0.6rem 1.3rem; border-radius: 50px; font-size: 0.85rem; font-weight: 500; }
+@media (max-width: 768px) {
+  .playbook-strip { padding: 0 1rem 3rem; }
+  .playbook-strip a { flex-direction: column; align-items: flex-start; padding: 1.3rem; }
+}
